@@ -1,9 +1,8 @@
-import React, {Component} from 'react'
-import NewProduct from './NewProduct';
-import {connect} from 'react-redux';
-import {fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems} from '../store';
-import Reviews from './Reviews';
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems } from '../store';
+import { NewProduct, Reviews } from './index';
 
 class SingleProduct extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {postCategory, editCategory} from '../store/allCategories';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postCategory, editCategory } from '../store';
 
 class NewCategory extends Component {
   constructor(props) {

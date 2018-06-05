@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { fetchCurrentOrder, editLineItem, deleteLineItem } from '../store';
-import CartDisplay from './CartDisplay';
+import { CartDisplay } from './index';
 
 class UserCart extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { addItemToCart, deleteItemFromCart, fetchCartItems } from '../store';
-import CartDisplay from './CartDisplay';
+import { CartDisplay } from './index';
 
 class GuestCart extends Component {
   constructor(props) {

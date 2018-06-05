@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {postProduct, editProduct} from '../store/allProducts';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postProduct, editProduct } from '../store';
 
 
 class NewProduct extends Component {

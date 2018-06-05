@@ -1,9 +1,7 @@
-import React, {Component} from 'react'
-import {deleteCategory} from '../store/allCategories'
-import {fetchCurrentCategory} from '../store/currentCategory'
-import NewCategory from './NewCategory'
-import AllProducts from './AllProducts'
-import {connect} from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { deleteCategory, fetchCurrentCategory } from '../store'
+import { NewCategory, AllProducts } from './index'
 
 class SingleCategory extends Component {
   constructor(props) {
