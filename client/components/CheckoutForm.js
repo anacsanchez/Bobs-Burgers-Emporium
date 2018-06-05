@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class CheckoutForm extends Component {
   constructor(props) {
@@ -60,3 +60,5 @@ const SingleItem = (props) => {
      </div>
    )
  }
+
+ { lineItems.reduce((orderTotal, lineItem) => orderTotal + lineItem.totalPrice, 0)}

@@ -62,16 +62,17 @@ class SingleOrder extends Component {
                   {/* <div>order status: {currentOrder.status}</div> */}
                   <div><b>Order Date: </b>{currentOrder.orderDate && currentOrder.orderDate.slice(0, 10)}</div>
                   <div>
-                  <div><b>Order Total: </b> {orderTotal}</div>
+                    <div><b>Order Total: </b>{ lineItems.reduce((orderTotal, lineItem) => orderTotal + lineItem.totalPrice, 0) }</div>
                     <form className="section-body" onSubmit={this.handleSubmit}>
-                          <div><b>Status: </b>
-                            <select name="status">
-                              <option value="Pending">Pending</option>
-                              <option value="Created">Created</option>
-                              <option value="Cancelled">Cancelled</option>
-                              <option value="Completed">Completed</option>
-                            </select>
-                          </div>
+                    <div>
+                      <b>Status: </b>
+                      <select name="status">
+                        <option value="Pending">Pending</option>
+                        <option value="Created">Created</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Completed">Completed</option>
+                      </select>
+                      </div>
                     </form>
                     <button className="btn btn-success button-fix" type="submit">Update</button>
                   </div>
@@ -79,9 +80,9 @@ class SingleOrder extends Component {
                 <div>
                   <h4>Order Line Items </h4>
                   {lineItems.map(lineItem => {
-                      orderTotal = orderTotal + lineItem.totalPrice;
                       return (
                         <div key={lineItem.id} className="lineItem">
+                        { console.log(lineItem) }
                           <div><b>Name: </b> {lineItem.product.name}</div>
                           <div><b>Quantity: </b> {lineItem.quantity}</div>
                           <div><b>Price: </b>{lineItem.currentPrice}</div>
