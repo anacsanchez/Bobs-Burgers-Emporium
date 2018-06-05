@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editOrder, postOrder, emptyCart } from '../store'
-import CheckoutForm from './CheckoutForm';
+import { CheckoutForm } from './index';
 
 class Checkout extends Component {
 
@@ -14,17 +14,10 @@ class Checkout extends Component {
   }
 
   placeOrder = (order) => {
-    this.props.editOrder(order);
+    Object.keys(this.props.currentUser).length ? this.props.editOrder(order) : this.props.postOrder(order, this.props.allCartItems);
     this.setState({
       isSubmitted: true
-    })
-  }
-
-  createOrder = (order) => {
-    this.props.postOrder(order, this.props.allCartItems);
-    this.setState({
-      isSubmitted: true
-    })
+    });
     this.props.emptyCart();
   }
 
@@ -37,7 +30,7 @@ class Checkout extends Component {
       return <CheckoutForm placeOrder={this.placeOrder} order={currentOrder} email={currentUser.email} products={currentOrder.lineItems} />
     }
     else {
-      return <CheckoutForm placeOrder={this.createOrder} products={allCartItems} />
+      return <CheckoutForm placeOrder={this.placeOrder} products={allCartItems} />
     }
   }
 }
