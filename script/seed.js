@@ -2,7 +2,7 @@ const db = require('../server/db')
 const { Product, Category, User, Order, Review, LineItem } = require('../server/db/models')
 const Chance = require('chance');
 const Promise = require('bluebird'); //Promise.map is not available in default promises
-const chance = new Chance();
+const chanceObj = new Chance();
 
 //Set the amount of instances for each table
 const numUsers = 50;
@@ -23,35 +23,35 @@ function doTimes(num, fn) {
 
 const randUser = () => {
   return User.create({
-    email: chance.email(),
-    password: chance.string({ length: 3 }),
-    admin: chance.bool({ likelihood: 10 })
+    email: chanceObj.email(),
+    password: chanceObj.string({ length: 3 }),
+    admin: chanceObj.bool({ likelihood: 10 })
   })
 }
 
 const randOrder = () => {
   return Order.create({
-    email: chance.email(),
-    shippingAddress: chance.address(),
-    userId: chance.integer({ min: 1, max: 51 }),
-    productId: chance.integer({ min: 1, max: 10 })
+    email: chanceObj.email(),
+    shippingAddress: chanceObj.address(),
+    userId: chanceObj.integer({ min: 1, max: 51 }),
+    productId: chanceObj.integer({ min: 1, max: 10 })
   })
 }
 
 const randReview = () => {
   return Review.create({
-    text: chance.string({ length: 25 }),
-    rating: chance.integer({ min: 1, max: 5 }),
-    productId: chance.integer({ min: 1, max: 10 }),
-    userId: chance.integer({ min: 1, max: 51 })
+    text: chanceObj.string({ length: 25 }),
+    rating: chanceObj.integer({ min: 1, max: 5 }),
+    productId: chanceObj.integer({ min: 1, max: 10 }),
+    userId: chanceObj.integer({ min: 1, max: 51 })
   })
 }
 
 const randLineItem = () => {
   return LineItem.create({
-    quantity: chance.integer({ min: 1, max: 10 }),
-    productId: chance.integer({ min: 1, max: 10 }),
-    orderId: chance.integer({ min: 1, max: 50 })
+    quantity: chanceObj.integer({ min: 1, max: 10 }),
+    productId: chanceObj.integer({ min: 1, max: 10 }),
+    orderId: chanceObj.integer({ min: 1, max: 50 })
   })
 }
 
