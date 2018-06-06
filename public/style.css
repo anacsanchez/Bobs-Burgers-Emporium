@@ -278,6 +278,10 @@ CART & CHECKOUT
   margin: .5em;
 }
 
+.button-fix {
+  width: 5em;
+}
+
 #checkout-items {
   display: flex;
   padding: 4em 0em 2em .4em;

@@ -44,7 +44,8 @@ class SingleProduct extends Component {
     const {currentProduct, currentOrder, currentUser} = this.props;
     let newLineItem = {
       quantity: 1,
-      productId: currentProduct.id
+      productId: currentProduct.id,
+      currentPrice: currentProduct.price
     }
     if (!Object.keys(currentUser).length) {
       this.props.addItemToCart(currentProduct);

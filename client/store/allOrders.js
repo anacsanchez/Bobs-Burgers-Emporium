@@ -45,6 +45,7 @@ export const deleteLineItem = (orderId, lineItemId) => dispatch => {
 }
 
 export const postLineItem = (orderId, lineItem) => dispatch => {
+  console.log(lineItem);
   axios.post(`/api/orders/${orderId}/lineItems`, lineItem)
   .then(() => dispatch(fetchCurrentOrder(orderId)))
   .catch(err => console.error('error creating a new line item', err))

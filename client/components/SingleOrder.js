@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCurrentOrder, editOrder } from '../store'
+import { editOrder, fetchOrders } from '../store'
 
 class SingleOrder extends Component {
   constructor(props) {
@@ -8,28 +8,32 @@ class SingleOrder extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchCurrentOrder(this.props.match.params.orderId);
+    this.props.fetchOrders();
   }
 
   handleSubmit = (event) => {
+    console.log(event.target);
     event.preventDefault();
+    const userOrder = this.props.allOrders.find(order => order.id == this.props.match.params.orderId);
     let status = event.target.status.value;
-    let user = {
-      id: this.props.currentOrder.id,
+    let order = {
+      id: userOrder.id,
       status: status
     }
-    this.props.editOrder(user);
+    this.props.editOrder(order);
   }
 
   render() {
-    const { currentOrder } = this.props;
-    if (!currentOrder) {
+    const userOrder = this.props.allOrders.find(order => order.id == this.props.match.params.orderId);
+    console.log(userOrder);
+    // if (!Object.keys(userOrder).length) {
+    if (!this.props.allOrders.length) {
       return <div>Order loading...</div>
     } else {
-      let lineItems = this.props.currentOrder.lineItems;
+      let lineItems = userOrder.lineItems;
       if (!lineItems) {
         return (
-          <div key={currentOrder.id} className="singleOrderContainer">
+          <div key={userOrder.id} className="singleOrderContainer">
             <div>
               <form className="section-body" onSubmit={this.handleSubmit}>
                 <label>Status:
@@ -40,11 +44,11 @@ class SingleOrder extends Component {
                     <option value="Completed">Completed</option>
                   </select>
                 </label>
-                <button className="btn btn-success" type="submit">Update</button>
+                <input type="submit" className="btn btn-success" value="Update" />
               </form>
             </div>
-            <div>email address: {currentOrder.email}</div>
-            <div>order status: {currentOrder.status}</div>
+            <div>email address: {userOrder.email}</div>
+            <div>order status: {userOrder.status}</div>
             <div>Line items loading...</div>
           </div>
         )
@@ -53,14 +57,14 @@ class SingleOrder extends Component {
           return (
           <div>
             <div className="page-header">
-              <h2>Order No. #{currentOrder.id}</h2>
+              <h2>Order No. #{userOrder.id}</h2>
             </div>
             <div className="page-body">
                 <div className="single-page-content">
                   <h4> Order Details </h4>
-                  <div><b>Email Address associated with this Order: </b>{currentOrder.email}</div>
+                  <div><b>Email Address associated with this Order: </b>{userOrder.email}</div>
                   {/* <div>order status: {currentOrder.status}</div> */}
-                  <div><b>Order Date: </b>{currentOrder.orderDate && currentOrder.orderDate.slice(0, 10)}</div>
+                  <div><b>Order Date: </b>{userOrder.orderDate && userOrder.orderDate.slice(0, 10)}</div>
                   <div>
                     <div><b>Order Total: </b>{ lineItems.reduce((orderTotal, lineItem) => orderTotal + lineItem.totalPrice, 0) }</div>
                     <form className="section-body" onSubmit={this.handleSubmit}>
@@ -73,8 +77,9 @@ class SingleOrder extends Component {
                         <option value="Completed">Completed</option>
                       </select>
                       </div>
+                      <input type="submit" value="Update" className="btn btn-success button-fix" />
                     </form>
-                    <button className="btn btn-success button-fix" type="submit">Update</button>
+
                   </div>
                 </div>
                 <div>
@@ -101,7 +106,7 @@ class SingleOrder extends Component {
 }
 
 // Container
-const mapState = ({ allOrders, currentOrder }) => ({ allOrders, currentOrder })
-const mapDispatch = { fetchCurrentOrder, editOrder }
+const mapState = ({ allOrders }) => ({ allOrders })
+const mapDispatch = { editOrder, fetchOrders }
 
 export default connect(mapState, mapDispatch)(SingleOrder);
