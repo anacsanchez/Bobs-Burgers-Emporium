@@ -18,7 +18,7 @@ const LineItem = db.define('lineItem', {
 },
   hooks: {
     afterCreate: function(lineItem) {
-      return lineItem.getProduct()
+        return lineItem.getProduct()
         .then(product => {
           lineItem.currentPrice = product.price
           lineItem.save()

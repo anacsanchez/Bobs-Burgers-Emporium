@@ -45,7 +45,7 @@ class SingleProduct extends Component {
     let newLineItem = {
       quantity: 1,
       productId: currentProduct.id,
-      currentPrice: currentProduct.price
+      // currentPrice: currentProduct.price
     }
     if (!Object.keys(currentUser).length) {
       this.props.addItemToCart(currentProduct);
@@ -75,13 +75,11 @@ class SingleProduct extends Component {
      else {
       return (
       <div>
-        <div>
           <div className="page-header">
-          <div className="page-header-sidebar">
-            <h2>{currentProduct.name}</h2>
-          </div>
+            <div className="page-header-sidebar">
+              <h2>{currentProduct.name}</h2>
             </div>
-        </div>
+          </div>
 
         <div className="page-body">
           <div className="single-page-content product-page">
@@ -90,14 +88,14 @@ class SingleProduct extends Component {
               <div><b>Description:</b> {currentProduct.description}</div>
               <div><b>Price:</b> {currentProduct.price}</div>
               { currentProduct.inventory > 0
-                ? <button className="btn btn-success button-fix button-margin" onClick={this.handleAdd}>Add To Cart</button>
+                ? <button className="btn btn-success button-margin" onClick={this.handleAdd}>Add To Cart</button>
                 : <div> No burgers at the moment. Check back soon!</div>
               }
               { currentUser.isAdmin
                 ? <div><div><b>Number of Burgers Remaining:</b>
                       {currentProduct.inventory}</div>
-                    <button onClick={this.handleEdit} className="btn btn-warning button-fix button-margin">Edit Burger</button>
-                    <button onClick={this.handleDelete} className="btn btn-danger button-fix button-margin">Delete Burger</button>
+                    <button onClick={this.handleEdit} className="btn btn-warning button-margin">Edit Burger</button>
+                    <button onClick={this.handleDelete} className="btn btn-danger button-margin">Delete Burger</button>
                   </div> : null
               }
               <div><b>Categories:</b>

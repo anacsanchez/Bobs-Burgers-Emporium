@@ -103,7 +103,7 @@ router.delete('/:orderId', isLoggedIn, isAdmin, (req, res, next) => {
 
 // post, update, and delete line items within an order
 router.post('/:orderId/lineItems', (req, res, next) => {
-  LineItem.bulkCreate(req.body)
+  LineItem.bulkCreate(req.body, {individualHooks: true})
   .then(lineItems => {
     req.order.reload({include: [{ all: true, include: [{all: true}] }]})
     res.json(lineItems)
