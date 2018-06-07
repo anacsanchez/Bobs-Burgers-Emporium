@@ -3,6 +3,7 @@ const { Product, Category, User, Order, Review, LineItem } = require('../server/
 const Chance = require('chance');
 const Promise = require('bluebird'); //Promise.map is not available in default promises
 const chanceObj = new Chance();
+const chanceObjReview = new Chance("Excellent!", "I\'ve had better", "Terrible", "No Thanks", "Pretty Good", "Alright", "Fantastic!");
 
 //Set the amount of instances for each table
 const numUsers = 50;
