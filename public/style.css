@@ -28,19 +28,12 @@ main {
   background-color: #fffdf4;
 }
 
-h2 {
-  /* color: #e2534e; */
-}
-
 a {
   text-decoration: none;
-  /* color: #db6702; */
   color: white;
 }
 
 a:hover {
-  /* color: #af5303;
-   */
    color: rgb(244, 0, 0);
 }
 
@@ -107,8 +100,6 @@ nav a {
 .all-nav {
   display: flex;
   justify-content: space-between;
-  /* border-bottom: 1px solid #eee; */
-  /* padding: 4px 0px 4px 0px; */
   background-color: rgb(255, 255, 255);
   border: 3px solid black;
   border-top: 0px;
@@ -143,10 +134,7 @@ nav a {
   display: flex;
   align-content: center;
   padding: .4em;
-  /* height: 3em; */
   font-size: 1.5em;
-
-  /* font-family: "Bobs Burgers"; */
 }
 
 .nav-items a {
@@ -193,7 +181,6 @@ HEADERS
 }
 
 .sub-header {
-  /* color: rgb(255, 174, 0); */
   color: white;
   font-family: "Claire Hand";
 }
@@ -202,7 +189,6 @@ HEADERS
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
-  /* color: #DB6600; */
   text-align: center;
 }
 
@@ -212,7 +198,6 @@ HEADERS
 }
 
 .title-box {
-  /* background-color: rgba(255, 255, 255, 0.797); */
   color: white;
   width: 20%;
   text-align: center;
