@@ -35,6 +35,7 @@ a {
 
 a:hover {
    color: rgb(244, 0, 0);
+   text-decoration: none;
 }
 
 label {

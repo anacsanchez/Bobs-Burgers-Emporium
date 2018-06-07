@@ -18,6 +18,7 @@ class SingleProduct extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const productId = Number(this.props.match.params.productId)
     this.props.fetchCurrentProduct(productId)
   }
