@@ -1,6 +1,14 @@
 /*
 MAIN
 */
+
+@font-face {
+  font-family: 'Claire Hand';
+  src: url('clairehandbold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -11,6 +19,8 @@ body {
   min-width: 100%;
   margin: 0;
   padding: 0;
+  background-color: gray;
+  font-family: "Claire Hand";
 }
 
 main {
@@ -19,16 +29,19 @@ main {
 }
 
 h2 {
-  color: #e2534e;
+  /* color: #e2534e; */
 }
 
 a {
   text-decoration: none;
-  color: #db6702;
+  /* color: #db6702; */
+  color: white;
 }
 
 a:hover {
-  color: #af5303;
+  /* color: #af5303;
+   */
+   color: rgb(244, 0, 0);
 }
 
 label {
@@ -40,6 +53,11 @@ app {
   font-family: "Arivo";
   height: 100%;
   width: 100%;
+}
+
+.title-box h2 {
+  font-family: "Claire Hand";
+  color: white;
 }
 
 img {
@@ -59,6 +77,7 @@ img {
   align-self: center;
   padding-right: 1em;
   margin: auto;
+  color: white;
 }
 
 #google-button {
@@ -88,38 +107,57 @@ nav a {
 .all-nav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  padding: 4px 0px 4px 0px;
+  /* border-bottom: 1px solid #eee; */
+  /* padding: 4px 0px 4px 0px; */
   background-color: rgb(255, 255, 255);
+  border: 3px solid black;
+  border-top: 0px;
 }
 
 .nav-logo {
-  height: 70px;
-  padding: .6em 0 .6em .6em;
   background-color: #FCDC25;
-  width: 100vw;
+  width: 100%;
+  border: 8px solid rgb(239, 0, 0);
+  margin-bottom: 0;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color:rgb(239, 0, 0);
+  padding-left: .1em;
+}
+
+
+.nav-border {
+  border: 3px solid black;
+  width: 100%;
 }
 
 .nav-logo img {
   height: 100%;
   max-width: none;
+  margin: .2em;
 }
 
 .nav-items {
   display: flex;
   align-content: center;
-  height: 3em;
+  padding: .4em;
+  /* height: 3em; */
+  font-size: 1.5em;
+
+  /* font-family: "Bobs Burgers"; */
 }
 
 .nav-items a {
   text-decoration: none;
-  padding: 1em 1.5em 0 .6em;
-  color: #e2534e;
+  padding: 0em 1.5em 0 .6em;
+  color: #c60701;
 }
 
 .nav-items a:visited {
   text-decoration: none;
-  color: #e2534e;
+  color: #bd0600;
 }
 
 .nav-items a:active {
@@ -128,7 +166,8 @@ nav a {
 
 .nav-items a:hover {
   text-decoration: none;
-  color: rgb(255, 89, 0);
+  /* color: rgb(255, 89, 0); */
+  color: rgb(228, 1, 1);
 }
 
 .nav-items > div > button {
@@ -149,17 +188,21 @@ HEADERS
 */
 .header {
   font-weight: 500 !important;
+  font-family: "Claire Hand";
+  color: white;
 }
 
-.subHeader {
-  color: rgb(255, 174, 0);
+.sub-header {
+  /* color: rgb(255, 174, 0); */
+  color: white;
+  font-family: "Claire Hand";
 }
 
 .page-header {
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
-  color: #DB6600;
+  /* color: #DB6600; */
   text-align: center;
 }
 
@@ -169,7 +212,8 @@ HEADERS
 }
 
 .title-box {
-  background-color: rgba(255, 255, 255, 0.797);
+  /* background-color: rgba(255, 255, 255, 0.797); */
+  color: white;
   width: 20%;
   text-align: center;
   margin-top: 3em;
@@ -225,10 +269,10 @@ form > div > div {
 CART & CHECKOUT
 */
 .cart-button button {
-  font-size: 1.3em;
+  font-size: 1.5em;
   padding-right: .8em;
   padding-left: .8em;
-  margin: 1em 1.5em 0 1em;
+  margin: .3em 1.5em 0 1em;
 }
 
 #cart-display {
@@ -326,6 +370,7 @@ CART & CHECKOUT
   width: 100%;
   border-radius: 0px;
   text-align: center;
+  border: none;
 }
 
 /*
@@ -358,12 +403,33 @@ SECTIONS & CONTAINERS
   margin-bottom: 0px;
   margin-left: 1em;
   padding-bottom: 0px;
-  padding: 0px 10px 0px 10px;
+  /* padding: 0px 10px 0px 10px; */
   flex-direction: column;
   width: 14%;
   min-width: 14em;
-  background-color: rgba(255, 255, 255, 0.838);
+  /* background-color: rgba(255, 255, 255, 0.838); */
+  /* border: 10px solid rgb(191, 32, 32); */
+  border: 3px solid black;
   margin-top: 3em;
+}
+
+.column-border{
+  border: 12px solid rgb(199, 15, 15);
+  width: 100%;
+  height: 100%;
+}
+
+.inner-column-border{
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+  padding: 0px 10px 0px 10px;
+}
+
+.inner-section-border {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
 }
 
 .section-header {
@@ -393,9 +459,19 @@ LISTS
   margin: 15px;
   text-align: center;
   justify-content: center;
-  border: none;
+  border: 2px solid black;
   text-decoration: none;
-  color: black;
+  /* color: black; */
+  color: white;
+}
+
+
+.list-item-medium {
+  width: 30%;
+  min-width: 200px;
+  margin: 1em;
+  background-color: gray;
+  padding: 4px;
 }
 
 .list-item a {
@@ -441,28 +517,39 @@ PRODUCTS
   padding: 1em;
   list-style: none;
   font-size: 1.2em;
-  background-color: rgba(255, 255, 255, 0.797);
+  /* background-color: rgba(255, 255, 255, 0.797); */
+  color: white;
   text-align: center;
   margin: auto;
   width: 40em;
-  line-height: 200%;
+  line-height: 220%;
 }
 
 .product {
-  background-color: #fffdf4;
+  /* background-color: #fffdf4; */
+  /* padding: 10px; */
+  height: 100%;
+  /* border: solid 1px #84848496; */
+  border: 10px solid rgb(199, 15, 15);
+  font-family: "Claire Hand";
+  color: white;
+}
+
+.product-inner{
   padding: 10px;
-  border: solid 1px #84848496;
+  height: 100%;
+  border: 2px solid black;
 }
 
 .product a {
-  color: #ef7878;
+  /* color: #ef7878; */
   margin-top: 1em;
 }
 
 .productName {
   font-size: 22px;
   font-weight: 600;
-  color: #de6b23;
+  /* color: #de6b23; */
 }
 
 .productInfo {
@@ -484,11 +571,33 @@ CATEGORIES & REVIEWS
 */
 #reviews-section {
   padding: 1.5em;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   background-color: rgba(255, 255, 255, 0.797);
   font-size: 1.1em;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid lightgray;
 }
 
+.form-spacing {
+  line-height: 150%;
+  padding-bottom: 1em;
+}
+
+
+.reviews-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category {
+  font-family: "Claire Hand";
+  /* color: white; */
+  text-decoration: none;
+}
+
+.category a:hover {
+  color: rgb(255, 104, 104);
+}
 #categories {
   padding: 10px;
   display: flex;

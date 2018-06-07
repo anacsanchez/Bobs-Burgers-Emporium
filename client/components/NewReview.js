@@ -16,7 +16,7 @@ export default class NewReview extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form-spacing">
         <label>Have an opinion? Share it below! </label>
         <form onSubmit={this.handleSubmit}>
         <label>Rating:

@@ -6,13 +6,18 @@ import { logout } from '../store'
 import { GuestCart, UserCart } from './index'
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
-  <div>
+  // <div>
     <nav>
-        <Link to="/">
+        <div className="nav-border">
           <div className="nav-logo">
+          <div className="nav-border">
+        <Link to="/home">
             <img src="https://image.ibb.co/gK2T07/bobs_burgers_banner2.png" />
-          </div>
+            {/* Bob's Burgers Emporium */}
         </Link>
+        </div>
+          </div>
+          </div>
         <div className="all-nav">
         <div className="nav-items">
         {isLoggedIn ? (
@@ -46,7 +51,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
        }
        </div>
     </nav>
-  </div>
+  // </div>
 )
 
 /**

@@ -84,7 +84,7 @@ class SingleProduct extends Component {
         <div className="page-body">
           <div className="single-page-content product-page">
             <img src={ currentProduct.imgUrl } />
-            <h4> Burger Details </h4>
+            {/* <h4> Burger Details </h4> */}
               <div><b>Description:</b> {currentProduct.description}</div>
               <div><b>Price:</b> {currentProduct.price}</div>
               { currentProduct.inventory > 0

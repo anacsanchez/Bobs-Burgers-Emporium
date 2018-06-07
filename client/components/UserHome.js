@@ -25,14 +25,14 @@ class UserHome extends Component {
       return (
         <div className="form-login">
           <h2 className="header">Welcome {this.state.email}!</h2>
-          <div className="subHeader">You Have No Orders</div>
+          <div className="sub-header">You Have No Orders</div>
         </div>
       )
     } else {
      return (
       <div className="orders-list">
          <h2 className="header">Welcome, {this.state.email}</h2>
-         <h2 className="subHeader">Your Orders:</h2>
+         <h2 className="sub-header">Your Orders:</h2>
          {
            userOrders.map(order => {
             return (

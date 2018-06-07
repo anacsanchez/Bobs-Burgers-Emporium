@@ -13,6 +13,8 @@ class AllCategories extends Component {
     return (
       <div className="page-body">
         <div className="section-column">
+        <div className="column-border">
+          <div className="inner-column-border">
           <div className="sidebarHeader">
             <h2 className="header">Filter </h2>
             {this.props.currentUser.isAdmin && <div>
@@ -20,7 +22,7 @@ class AllCategories extends Component {
             <Link to="/new-product"> <button className="btn btn-success new">New Product</button></Link>
             </div>}
 
-            <h4 className="subHeader">Explore burgers by category</h4>
+            <h4 className="sub-header">Explore burgers by category</h4>
           </div>
           {this.props.allCategories.map(category => {
           return (
@@ -30,6 +32,8 @@ class AllCategories extends Component {
           )
         })
       }
+      </div>
+      </div>
       </div>
         <AllProducts />
     </div>
