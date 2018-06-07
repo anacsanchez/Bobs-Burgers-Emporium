@@ -29,14 +29,13 @@ const Order = db.define('order', {
             lineItems.forEach(lineItem => {
               return lineItem.getProduct()
                 .then(product => {
-                  product.decrement(lineItem.quantity)
+                  product.decrement(lineItem.quantity);
                 })
             })
           })
       }
     }
   }
-}
-)
+})
 
-module.exports = Order
+module.exports = Order;

@@ -18,10 +18,16 @@ const LineItem = db.define('lineItem', {
 },
   hooks: {
     afterCreate: function(lineItem) {
-        return lineItem.getProduct()
+        lineItem.getProduct()
         .then(product => {
           lineItem.currentPrice = product.price
           lineItem.save()
+          lineItem.getOrder()
+          .then(order => {
+            if (order.status == "Created") {
+              product.decrement(lineItem.quantity)
+            }
+          })
         })
     }
   }
