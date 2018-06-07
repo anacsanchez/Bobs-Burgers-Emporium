@@ -13,29 +13,27 @@ class AllCategories extends Component {
     return (
       <div className="page-body">
         <div className="section-column">
-        <div className="column-border">
-          <div className="inner-column-border">
-          <div className="sidebarHeader">
-            <h2 className="header">Filter </h2>
-            {this.props.currentUser.isAdmin && <div>
-            <Link to="/new-category"> <button className="btn btn-success new">New Category </button></Link>
-            <Link to="/new-product"> <button className="btn btn-success new">New Product</button></Link>
-            </div>}
-
-            <h4 className="sub-header">Explore burgers by category</h4>
-          </div>
-          {this.props.allCategories.map(category => {
-          return (
-            <Link to={`/categories/${category.id}`} key={category.id}>
+          <div className="column-border"><div className="inner-column-border">
+            <div className="sidebar-header">
+              <h2 className="header color-white">Filter </h2>
+              {
+                this.props.currentUser.isAdmin && <div>
+                  <Link to="/new-category"> <button className="btn btn-success new">New Category </button></Link>
+                  <Link to="/new-product"> <button className="btn btn-success new">New Product</button></Link>
+                </div>
+              }
+              <h4 className="sub-header color-white">Explore burgers by category</h4>
+            </div>
+            {
+              this.props.allCategories.map(category =>
+                <Link to={`/categories/${category.id}`} key={category.id}>
                   <h4 className="category">{category.name}</h4>
-            </Link>
-          )
-        })
-      }
+                </Link>
+              )
+            }
+        </div></div>
       </div>
-      </div>
-      </div>
-        <AllProducts />
+      <AllProducts />
     </div>
     )
   }
@@ -45,8 +43,8 @@ const mapState = ({allCategories, currentUser}) => ({allCategories, currentUser}
 
 const mapDispatch = dispatch => {
   return {
-  fetchData: () => {
-    dispatch(fetchCategories());
+    fetchData: () => {
+      dispatch(fetchCategories());
     }
   }
 }

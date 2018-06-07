@@ -38,8 +38,8 @@ class NewCategory extends Component {
     let disabled = !completed;
 
     return (
-      <div>
-
+      <div className="bg-white">
+      <h4 className="padding-20">Add New Category</h4>
         <div>
         {disabled &&
           <div className="alert alert-warning">You must enter a category name.</div>

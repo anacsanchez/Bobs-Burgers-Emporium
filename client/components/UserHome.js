@@ -31,12 +31,12 @@ class UserHome extends Component {
     } else {
      return (
       <div className="orders-list">
-         <h2 className="header">Welcome, {this.state.email}</h2>
-         <h2 className="sub-header">Your Orders:</h2>
+         <h2 className="header color-black">Welcome, {this.state.email}</h2>
+         <h2 className="sub-header color-black">Your Orders:</h2>
          {
            userOrders.map(order => {
             return (
-              <div key={order.id} className="order-item product col-xs-2">
+              <div key={order.id} className="col-xs-2 list-item-small bg-white">
                 <div><p>Account email: {order.email}</p></div>
                 <div><p>Shipping address: {order.shippingAddress}</p></div>
                 <div><p>Order status: {order.status}</p></div>

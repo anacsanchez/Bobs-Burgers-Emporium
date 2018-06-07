@@ -21,7 +21,7 @@ class Reviews extends Component {
     else {
       return (
       <div id="reviews-section">
-        {currentUser
+        { Object.keys(currentUser).length
           ? <NewReview submitReview={this.submitReview} product={currentProduct} user={currentUser} />
           : null}
         {/* <h5>Average Rating</h5> */}
@@ -35,7 +35,7 @@ class Reviews extends Component {
           currentProduct.reviews.length
           ? currentProduct.reviews.map(review => {
           return (
-            <ul className="list-item-medium product" key={review.id}>
+            <ul className="list-item-medium note-item outer-border" key={review.id}>
               <p><b>Rating:</b> {review.rating}</p>
               <p><b>Comments:</b> {review.text}</p>
             {currentUser.isAdmin && <button onClick={() => this.handleRemove(review)}>-</button>}

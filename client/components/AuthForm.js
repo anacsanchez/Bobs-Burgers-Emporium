@@ -10,15 +10,17 @@ const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
+
     <div className="form-login">
+    <div className="outer-border bg-gray"><div className="red-border"><div className="inner-border padding-20">
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="email"><small>Email</small></label>
-          <input name="email" type="text" />
+          <label htmlFor="email" className="color-white"><small>Email</small></label>
+          <input name="email" type="text" className="input-font" />
         </div>
         <div>
-          <label htmlFor="password"><small>Password</small></label>
-          <input name="password" type="password" />
+          <label htmlFor="password" className="color-white"><small>Password</small></label>
+          <input name="password" type="password" className="input-font" />
         </div>
         <br />
         <div>
@@ -28,7 +30,7 @@ const AuthForm = (props) => {
       </form>
       <br />
       <a href="/auth/google"><img src="/btn_google_signin.png" alt="Google signin button" id="google-button" /></a>
-    </div>
+    </div></div></div></div>
   )
 }
 

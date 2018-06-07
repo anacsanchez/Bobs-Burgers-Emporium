@@ -76,13 +76,13 @@ class SingleProduct extends Component {
      else {
       return (
       <div>
-          <div className="page-header">
+          <div className="page-header product-page-header">
             <div className="page-header-sidebar">
               <h2>{currentProduct.name}</h2>
             </div>
           </div>
 
-        <div className="page-body">
+        <div className="page-body bg-gray">
           <div className="single-page-content product-page">
             <img src={ currentProduct.imgUrl } />
             {/* <h4> Burger Details </h4> */}

@@ -13,13 +13,17 @@ html {
   height: 100%;
   width: 100%;
 }
-
+.title-box > .sub-header {
+  color: rgb(172, 0, 0);
+}
 body {
   min-height: 100%;
   min-width: 100%;
   margin: 0;
   padding: 0;
-  background-color: gray;
+  /* background-color: #fff5ce; */
+  background-color: #fdfdde;
+  /* background-color: gray; */
   font-family: "Claire Hand";
 }
 
@@ -34,8 +38,12 @@ a {
 }
 
 a:hover {
-   color: rgb(244, 0, 0);
+   color: rgb(255, 94, 94);
    text-decoration: none;
+}
+
+.product-inner a:hover {
+  color: rgb(255, 203, 203);
 }
 
 label {
@@ -49,9 +57,25 @@ app {
   width: 100%;
 }
 
+.title-box {
+  color: rgb(172, 0, 0);
+}
+
 .title-box h2 {
   font-family: "Claire Hand";
+  color: rgb(172, 0, 0);
+}
+
+.color-white {
   color: white;
+}
+
+.color-black {
+  color: black;
+}
+
+.input-font {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 img {
@@ -155,7 +179,6 @@ nav a {
 
 .nav-items a:hover {
   text-decoration: none;
-  /* color: rgb(255, 89, 0); */
   color: rgb(228, 1, 1);
 }
 
@@ -178,14 +201,16 @@ HEADERS
 .header {
   font-weight: 500 !important;
   font-family: "Claire Hand";
-  color: white;
+  /* color: white; */
 }
-
+/*
 .sub-header {
   color: white;
   font-family: "Claire Hand";
+} */
+.titlebox > h4 .sub-header {
+  color: red;
 }
-
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -199,7 +224,7 @@ HEADERS
 }
 
 .title-box {
-  color: white;
+  /* color: white; */
   width: 20%;
   text-align: center;
   margin-top: 3em;
@@ -215,10 +240,8 @@ form > div > div {
 }
 
 .form-login {
-  padding: 20px;
   width: 20em;
   font-size: 1.5em;
-  background-color: rgba(255, 255, 255, 0.865);
   text-align: center;
   margin: 6em auto 0em auto;
 }
@@ -231,8 +254,29 @@ form > div > div {
   font-size: .9em;
 }
 
+.padding-20 {
+  padding: 20px;
+}
+
 .white {
   color: white;
+}
+
+/* .chalkboard-box-outer-border {
+  border: 1px solid black;
+
+} */
+
+.outer-border {
+  border: 3px solid black;
+}
+
+.red-border {
+  border: 12px solid rgb(199, 15, 15);
+}
+
+.inner-border {
+  border: 3px solid black;
 }
 
 .opacity {
@@ -394,6 +438,7 @@ SECTIONS & CONTAINERS
   width: 14%;
   min-width: 14em;
   /* background-color: rgba(255, 255, 255, 0.838); */
+  background-color: gray;
   /* border: 10px solid rgb(191, 32, 32); */
   border: 3px solid black;
   margin-top: 3em;
@@ -420,7 +465,7 @@ SECTIONS & CONTAINERS
 
 .section-header {
   margin-bottom: 0px;
-  color: rgb(250, 109, 0);
+  /* color: rgb(250, 109, 0); */
   display: flex;
   justify-content: center;
 }
@@ -448,6 +493,7 @@ LISTS
   border: 2px solid black;
   text-decoration: none;
   /* color: black; */
+  background-color:gray;
   color: white;
 }
 
@@ -458,6 +504,20 @@ LISTS
   margin: 1em;
   background-color: gray;
   padding: 4px;
+}
+
+.list-item-small {
+  width: 20%;
+  min-width: 150px;
+  margin: .5em;
+  padding: 4px;
+  height: 15em;
+  border: 1px solid black;
+}
+
+.note-item {
+  background-color: white;
+  padding: 10px;
 }
 
 .list-item a {
@@ -482,12 +542,21 @@ PRODUCTS
   padding: 5px;
 }
 
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-white {
+  background-color: white;
+}
+
 .section-body {
   display: flex;
   flex-direction: column;
   width: 50vw;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.797);
+  font-size: 1.5em;
+  /* background-color: rgba(255, 255, 255, 0.797); */
 }
 
 .section-body button {
@@ -503,6 +572,7 @@ PRODUCTS
   padding: 1em;
   list-style: none;
   font-size: 1.2em;
+  background-color: gray;
   /* background-color: rgba(255, 255, 255, 0.797); */
   color: white;
   text-align: center;
@@ -510,7 +580,11 @@ PRODUCTS
   width: 40em;
   line-height: 220%;
 }
-
+.product-page-header {
+  background-color: gray;
+  padding: 10px 10px 10px 10px;
+  margin: 0;
+}
 .product {
   /* background-color: #fffdf4; */
   /* padding: 10px; */
@@ -558,7 +632,7 @@ CATEGORIES & REVIEWS
 #reviews-section {
   padding: 1.5em;
   /* margin-top: 30px; */
-  background-color: rgba(255, 255, 255, 0.797);
+  /* background-color: rgba(255, 255, 255, 0.797); */
   font-size: 1.1em;
   width: 100%;
   text-align: center;
