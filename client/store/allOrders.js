@@ -45,6 +45,7 @@ export const deleteLineItem = (orderId, lineItemId) => dispatch => {
 }
 
 export const postLineItem = (orderId, lineItem) => dispatch => {
+  console.log(lineItem);
   axios.post(`/api/orders/${orderId}/lineItems`, lineItem)
   .then(() => dispatch(fetchCurrentOrder(orderId)))
   .catch(err => console.error('error creating a new line item', err))
@@ -57,11 +58,12 @@ export const editLineItem = (orderId, lineItem) => dispatch => {
 }
 
 export const postOrder = (order, lineItems) => dispatch => {
+  console.log(lineItems);
   axios.post('/api/orders', order)
   .then(res => res.data)
   .then(newOrder => {
     dispatch(fetchCurrentOrder(newOrder.id));
-    lineItems.forEach(lineItem => lineItem.orderId = newOrder.id)
+    lineItems.map(lineItem => lineItem.orderId = newOrder.id)
     dispatch(postLineItem(newOrder.id, lineItems))
     dispatch(addOrder(newOrder));
     // history.push(`/orders/${newOrder.id}`);

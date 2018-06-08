@@ -48,7 +48,7 @@ router.get('/', (req, res, next) => {
 //For Testing purposes due to logged in requirement - AS
 router.get('/:orderId', (req, res, next) => {
   //if (order.userId !== req.userId) return next(makeError('403', 'Forbidden'));
-  req.order.reload({include: [{ all: true, include: [{all: true}] }]})
+  req.order.reload({include: [{ all: true, include: [{all: true, include:[{all: true}]}] }]})
   .then(order => {
     res.json(order)
   })
@@ -103,7 +103,7 @@ router.delete('/:orderId', isLoggedIn, isAdmin, (req, res, next) => {
 
 // post, update, and delete line items within an order
 router.post('/:orderId/lineItems', (req, res, next) => {
-  LineItem.bulkCreate(req.body)
+  LineItem.bulkCreate(req.body, {individualHooks: true})
   .then(lineItems => {
     req.order.reload({include: [{ all: true, include: [{all: true}] }]})
     res.json(lineItems)

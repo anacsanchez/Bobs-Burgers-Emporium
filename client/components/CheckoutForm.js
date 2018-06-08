@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class CheckoutForm extends Component {
   constructor(props) {
@@ -12,11 +12,9 @@ export default class CheckoutForm extends Component {
     const { email, address1, address2, city, state, zip } = evt.target;
     let order;
     this.props.order ? order = this.props.order : order = {};
-      // order.email = this.props.email;
     this.props.email ? order.email = this.props.email : order.email = email.value;
     order.shippingAddress = `${address1.value}, ${address2.value}, ${city.value}, ${state.value} ${zip.value}`;
     order.status = 'Created';
-    console.log(order);
     this.props.placeOrder(order);
   }
 
@@ -27,7 +25,7 @@ export default class CheckoutForm extends Component {
     return (
       <div id="checkout-items">
         <form id="checkout-form" onSubmit={this.handleOrder}>
-          <p style={{fontWeight: 'bold', fontSize: '1.2em'}}>Shipping Address </p>
+        <p style={{fontWeight: 'bold', fontSize: '1.2em'}}>Shipping Address </p>
           <label>Address 1:</label><input type="text" name="address1" />
           <label>Address 2 (Optional):</label><input type="text" name="address2" />
           <label>City</label><input type="text" name="city" />

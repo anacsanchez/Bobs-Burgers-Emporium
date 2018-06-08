@@ -2,7 +2,8 @@ const db = require('../server/db')
 const { Product, Category, User, Order, Review, LineItem } = require('../server/db/models')
 const Chance = require('chance');
 const Promise = require('bluebird'); //Promise.map is not available in default promises
-const chance = new Chance();
+const chanceObj = new Chance();
+const chanceObjReview = new Chance("Excellent!", "I\'ve had better", "Terrible", "No Thanks", "Pretty Good", "Alright", "Fantastic");
 
 //Set the amount of instances for each table
 const numUsers = 50;
@@ -23,36 +24,35 @@ function doTimes(num, fn) {
 
 const randUser = () => {
   return User.create({
-    email: chance.email(),
-    password: chance.string({ length: 3 }),
-    admin: chance.bool({ likelihood: 10 })
+    email: chanceObj.email(),
+    password: chanceObj.string({ length: 3 }),
+    admin: chanceObj.bool({ likelihood: 10 })
   })
 }
 
 const randOrder = () => {
   return Order.create({
-    email: chance.email(),
-    shippingAddress: chance.address(),
-    userId: chance.integer({ min: 1, max: 51 }),
-    productId: chance.integer({ min: 1, max: 10 }),
-    // status: 'Completed'
+    email: chanceObj.email(),
+    shippingAddress: chanceObj.address(),
+    userId: chanceObj.integer({ min: 1, max: 51 }),
+    productId: chanceObj.integer({ min: 1, max: 10 })
   })
 }
 
 const randReview = () => {
   return Review.create({
-    text: chance.string({ length: 25 }),
-    rating: chance.integer({ min: 1, max: 5 }),
-    productId: chance.integer({ min: 1, max: 10 }),
-    userId: chance.integer({ min: 1, max: 51 })
+    text: chanceObj.string({ length: 25 }),
+    rating: chanceObj.integer({ min: 1, max: 5 }),
+    productId: chanceObj.integer({ min: 1, max: 10 }),
+    userId: chanceObj.integer({ min: 1, max: 51 })
   })
 }
 
 const randLineItem = () => {
   return LineItem.create({
-    quantity: chance.integer({ min: 1, max: 10 }),
-    productId: chance.integer({ min: 1, max: 10 }),
-    orderId: chance.integer({ min: 1, max: 50 })
+    quantity: chanceObj.integer({ min: 1, max: 10 }),
+    productId: chanceObj.integer({ min: 1, max: 10 }),
+    orderId: chanceObj.integer({ min: 1, max: 50 })
   })
 }
 
@@ -117,14 +117,14 @@ async function seed() {
       description: 'A feta stuffed burger on a chive-tastic bun. Topped with a million diced chives and a creamy sour cream & mustard spread',
       price: 7.99,
       inventory: 6,
-      imgUrl: 'https://image.ibb.co/dOzuy8/burger2.png'
+      imgUrl: 'https://image.ibb.co/kFdwnn/baby_you_can_chive.png'
     }).then(product => product.setCategories([2])),
     Product.create({
       name: 'Pickle My Funny Bone',
       description: 'Fried pickles take this burger to another level',
       price: 6.75,
       inventory: 10,
-      imgUrl: 'https://image.ibb.co/cAKDQo/burger1.png'
+      imgUrl: 'https://image.ibb.co/kRnpQ7/gourdon_hamsey.png'
     }).then(product => product.setCategories([1])),
     Product.create({
       name: 'Do the Brussel',
@@ -137,13 +137,14 @@ async function seed() {
       description: 'Swiss and Jarlsberg make this cheeseburger extra melty.',
       price: 6.99,
       inventory: 1,
+      imgUrl: 'https://image.ibb.co/djnmL7/dont_you_four_cheddar.png'
     }).then(product => product.setCategories([2])),
     Product.create({
       name: 'I\'ve Created A Muenster',
       description: 'Who can say no to melty cheese and mushrooms?',
       price: 9.99,
       inventory: 20,
-      imgUrl: 'https://image.ibb.co/f6oMd8/burger3.png'
+      imgUrl: 'https://image.ibb.co/njikyS/mission_acornplished.png'
     }).then(product => product.setCategories([1])),
     Product.create({
       name: 'It\'s Fun to Eat At The Rye-MCA',
@@ -162,12 +163,14 @@ async function seed() {
       description: 'Winner winnder burger dinner! This all-beef patty is topped with fresh mozarella, spinach, homemade black garlic mayo and a dash of Sriracha hot sauce.',
       price: 12.99,
       inventory: 9,
+      imgUrl: 'https://image.ibb.co/iEq9Q7/if_looks_could_kale.png'
     }).then(product => product.setCategories([2])),
     Product.create({
       name: 'Don\'t You Four Cheddar \'Bout Me',
       description: 'Lettuce, cheeseburger, bacon slices, onions. A gratuitous number of cheddars? No. Five would be crazy. But what are you going to do, three? No. Four\'s your number.',
       price: 4.00,
       inventory: 4,
+      imgUrl: 'https://image.ibb.co/djnmL7/dont_you_four_cheddar.png'
     }).then(product => product.setCategories([2]))
   ])
 
@@ -177,10 +180,16 @@ async function seed() {
 
   const lineItems = await Promise.all(generateLineItems())
 
+
+  // Wowzers! We can even `await` on the right-hand side of the assignment operator
+  // and store the result that the promise resolves to in a variable! This is nice!
   console.log(`seeded ${products.length} users, ${categories.length} categories, ${users.length} users, ${orders.length} orders, ${reviews.length} reviews, and ${lineItems.length} line items`)
   console.log(`seeded successfully`)
 }
 
+// Execute the `seed` function
+// `Async` functions always return a promise, so we can use `catch` to handle any errors
+// that might occur inside of `seed`
 seed()
   .catch(err => {
     console.error(err.message)
@@ -193,4 +202,9 @@ seed()
     console.log('db connection closed')
   })
 
+/*
+ * note: everything outside of the async function is totally synchronous
+ * The console.log below will occur before any of the logs that occur inside
+ * of the async function
+ */
 console.log('seeding...')

@@ -20,21 +20,22 @@ class Reviews extends Component {
     if (!currentProduct.reviews) {return null}
     else {
       return (
-      <div>
-        {currentUser
+      <div id="reviews-section">
+        { Object.keys(currentUser).length
           ? <NewReview submitReview={this.submitReview} product={currentProduct} user={currentUser} />
           : null}
-        <h5>Average Rating</h5>
+        {/* <h5>Average Rating</h5> */}
           {currentProduct.reviews && currentProduct.reviews.length
-            ? <p>Average Rating: {Math.round((currentProduct.reviews.reduce((acc, currVal) => acc + currVal.rating, 0) / currentProduct.reviews.length) * 10) / 10}</p>
-            : <p> No ratings </p>
+            ? <h4>Average Rating: {Math.round((currentProduct.reviews.reduce((acc, currVal) => acc + currVal.rating, 0) / currentProduct.reviews.length) * 10) / 10}</h4>
+            : <h4> No ratings </h4>
           }
-          <h5>All Ratings </h5>
+          <h3>All Ratings </h3>
+          <div className="reviews-list">
         {
           currentProduct.reviews.length
           ? currentProduct.reviews.map(review => {
           return (
-            <ul className="order-item product" key={review.id}>
+            <ul className="list-item-medium note-item outer-border" key={review.id}>
               <p><b>Rating:</b> {review.rating}</p>
               <p><b>Comments:</b> {review.text}</p>
             {currentUser.isAdmin && <button onClick={() => this.handleRemove(review)}>-</button>}
@@ -42,6 +43,7 @@ class Reviews extends Component {
             })
           : <p>There are no reviews for this product</p>
           }
+          </div>
       </div>
     )
     }

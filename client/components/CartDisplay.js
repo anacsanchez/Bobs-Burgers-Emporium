@@ -28,15 +28,4 @@ const CartDisplay = ({products, handleAdd, handleReduce, hideCart}) => {
   )
 }
 
-// const SingleItem = ({lineItem}) => {
-//  return  (
-//     <div className="cart-item">
-//       <p>{lineItem.product.name}</p>
-//       <img src={lineItem.product.imgUrl} />
-//       <p>Quantity: {lineItem.quantity}</p>
-//       <p>Price: {lineItem.quantity * lineItem.product.price}</p>
-//     </div>
-//   )
-// }
-
 export default CartDisplay;

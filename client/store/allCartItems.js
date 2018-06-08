@@ -51,7 +51,7 @@ export const fetchCartItems = () => dispatch => {
   });
   Promise.all(Object.keys(cache).map(lineItem =>
     axios.get(`/api/products/${lineItem}`)
-    .then(result => ({ product: result.data, quantity: cache[result.data.id]}))))
+    .then(result => ({ productId: result.data.id, product: result.data, quantity: cache[result.data.id]}))))
   .then(createdLineItems => {
     dispatch(getCurrentCartItems(createdLineItems))
   })

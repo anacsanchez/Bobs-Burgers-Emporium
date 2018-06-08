@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Home, Login, Signup, UserHome, AllProducts, SingleProduct, NewProduct, AllCategories, NewCategory, SingleCategory, AllOrders, SingleOrder, AllUsers, UserEdit, Checkout } from './components'
-import { me, fetchInitialOrder, fetchCartItems } from './store'
+import {Login, Signup, UserHome, AllProducts, SingleProduct, NewProduct, AllCategories, NewCategory, SingleCategory, AllOrders, SingleOrder, AllUsers, UserEdit, Checkout} from './components'
+import { me, fetchInitialOrder, fetchCartItems} from './store'
 
 /**
  * COMPONENT
@@ -25,7 +25,7 @@ class Routes extends Component {
         <Route exact path="/categories" component={AllCategories} />
         <Route path="/categories/:categoryId" component={SingleCategory} />
         <Route exact path="/products" component={AllProducts} />
-        <Route path="/products/:productId" component={SingleProduct} />
+        <Route exact path="/products/:productId" component={SingleProduct} />
         <Route path="/new-product" component={NewProduct} />
         <Route path="/new-category" component={NewCategory} />
         <Route path="/checkout" component={Checkout} />

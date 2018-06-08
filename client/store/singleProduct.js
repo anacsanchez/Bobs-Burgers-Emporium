@@ -9,7 +9,7 @@ const getSingleProduct = product => ({ type: GET_SINGLE_PRODUCT, product });
 // reducer
 export default (currentProduct = {}, action) => {
   switch (action.type) {
-    case GET_SINGLE_PRODUCT :
+    case GET_SINGLE_PRODUCT:
       return action.product;
     default:
       return currentProduct;

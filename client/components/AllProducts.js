@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts, fetchCategories, fetchCurrentCategory } from '../store';
 import { Link } from 'react-router-dom';
+import { fetchProducts, fetchCategories, fetchCurrentCategory } from '../store';
 
 // Component
 class AllProducts extends Component {
@@ -23,12 +23,12 @@ class AllProducts extends Component {
             ? (
               <div>
                 <h2 className="header">Burgers in this Category</h2>
-                <h4 className="subHeader">{displayProducts.length} products</h4>
+                <h4 className="sub-header">{displayProducts.length} products</h4>
               </div>
               ) : (
               <div className="title-box">
                 <h2> All Burgers</h2>
-                <h4 className="subHeader">{displayProducts.length} products</h4>
+                <h4 className="sub-header">{displayProducts.length} products</h4>
               </div>
             )
           }
@@ -40,7 +40,7 @@ class AllProducts extends Component {
         : <div className="items-container all-products">
           {displayProducts && displayProducts.map(product => {
             return (
-                <div className="list-item product" key={product.id}>
+                <div className="list-item" key={product.id}><div className="product"><div className="product-inner">
                 <Link to={`/products/${product.id}`}>
                   <img className="thumbnail" src={ product.imgUrl } />
                   <div>
@@ -57,7 +57,7 @@ class AllProducts extends Component {
                    </div>
                    </div>
                   </Link>
-                </div>
+                </div></div></div>
               )
             })
           }
@@ -68,7 +68,6 @@ class AllProducts extends Component {
   )
   }
 }
-
 
 // Container
 const mapState  = ({allProducts, currentUser, allCategories}, ownProps) => {
