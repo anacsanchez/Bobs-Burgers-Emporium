@@ -8,7 +8,6 @@ class SingleCategory extends Component {
     super(props);
 
     this.state = {
-      currentCategory: this.props.currentCategory,
       isEditing: false
     }
     this.handleDelete = this.handleDelete.bind(this);
@@ -18,14 +17,6 @@ class SingleCategory extends Component {
   componentDidMount() {
     const categoryId = Number(this.props.match.params.categoryId)
     this.props.fetchCurrentCategory(categoryId)
-  }
-
-  componentWillReceiveProps(newProps, oldProps) {
-    if (newProps.currentCategory !== oldProps.currentCategory) {
-      this.setState({
-        currentCategory: newProps.currentCategory
-      })
-    }
   }
 
   handleEdit() {
@@ -38,13 +29,13 @@ class SingleCategory extends Component {
   }
 
   render() {
-    const currentCategory = this.state.currentCategory;
+    const { currentCategory } = this.props;
     const products = currentCategory.products || []
-    if (!currentCategory) return <div />; // the product id is invalid or the data isnt loaded yet
+    if (!currentCategory || currentCategory.id !== Number(this.props.match.params.categoryId)) return <div />; // the product id is invalid or the data isnt loaded yet
 
     if (this.state.isEditing) {
       return (
-        <NewCategory category={this.state.currentCategory} handleEdit={this.handleEdit} />
+        <NewCategory category={currentCategory} handleEdit={this.handleEdit} />
       )
     }
 
@@ -52,7 +43,7 @@ class SingleCategory extends Component {
       return (
       <div>
         <div>
-          <div className="page-header">
+          <div className="page-header center">
             <h2>{currentCategory.name}</h2>
             {this.props.currentUser.isAdmin && <div className="page-body">
               <button onClick={this.handleEdit} className="btn btn-warning new">Edit Category</button>

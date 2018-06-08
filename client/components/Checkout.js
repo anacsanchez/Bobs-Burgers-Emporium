@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editOrder, postOrder, emptyCart } from '../store'
+import { editOrder, postOrder, emptyCart, resetCurrentOrder } from '../store'
 import { CheckoutForm } from './index';
 
 class Checkout extends Component {
@@ -19,6 +19,7 @@ class Checkout extends Component {
       isSubmitted: true
     });
     this.props.emptyCart();
+    this.props.resetCurrentOrder();
   }
 
   render() {
@@ -37,6 +38,6 @@ class Checkout extends Component {
 
 const mapState = ({ allCartItems, currentUser, currentOrder }) => ({ allCartItems, currentUser, currentOrder });
 
-const mapDispatch = { editOrder, postOrder, emptyCart }
+const mapDispatch = { editOrder, postOrder, emptyCart, resetCurrentOrder }
 
 export default connect(mapState, mapDispatch)(Checkout);

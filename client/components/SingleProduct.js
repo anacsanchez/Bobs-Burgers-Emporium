@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems } from '../store';
+import { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems } from '../store';
 import { NewProduct, Reviews } from './index';
 
 class SingleProduct extends Component {
@@ -9,7 +9,6 @@ class SingleProduct extends Component {
     super(props);
 
     this.state = {
-      currentProduct: this.props.currentProduct,
       isEditing: false
     }
     this.handleDelete = this.handleDelete.bind(this);
@@ -19,16 +18,7 @@ class SingleProduct extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    const productId = Number(this.props.match.params.productId)
-    this.props.fetchCurrentProduct(productId)
-  }
-
-  componentWillReceiveProps(newProps, oldProps) {
-    if (newProps.currentProduct !== oldProps.currentProduct) {
-      this.setState({
-        currentProduct: newProps.currentProduct
-      })
-    }
+    this.props.fetchData();
   }
 
   handleEdit() {
@@ -46,7 +36,6 @@ class SingleProduct extends Component {
     let newLineItem = {
       quantity: 1,
       productId: currentProduct.id,
-      // currentPrice: currentProduct.price
     }
     if (!Object.keys(currentUser).length) {
       this.props.addItemToCart(currentProduct);
@@ -63,16 +52,14 @@ class SingleProduct extends Component {
   }
 
   render() {
-    const currentUser = this.props.currentUser;
-    const currentProduct = this.state.currentProduct;
-    if (!currentProduct) return <div />; // the product id is invalid or the data isnt loaded yet
+    const { currentUser, currentProduct } = this.props;
+    if (!currentProduct || currentProduct.id !== Number(this.props.match.params.productId)) return <div className="height-100 bg-gray"></div>; // the product id is invalid or the data isnt loaded yet
 
     if (this.state.isEditing) {
       return (
-        <NewProduct product={this.state.currentProduct} handleEdit={this.handleEdit} />
+        <NewProduct product={currentProduct} handleEdit={this.handleEdit} />
       )
     }
-
      else {
       return (
       <div>
@@ -85,7 +72,6 @@ class SingleProduct extends Component {
         <div className="page-body bg-gray">
           <div className="single-page-content product-page">
             <img src={ currentProduct.imgUrl } />
-            {/* <h4> Burger Details </h4> */}
               <div><b>Description:</b> {currentProduct.description}</div>
               <div><b>Price:</b> {currentProduct.price}</div>
               { currentProduct.inventory > 0
@@ -122,6 +108,15 @@ class SingleProduct extends Component {
 
 const mapState = ({ currentProduct, currentUser, currentOrder }) => ({ currentProduct, currentUser, currentOrder })
 
-const mapDispatch = { fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart }
+// const mapDispatch = { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart }
+
+const mapDispatch = (dispatch, ownProps) => {
+  return {
+    fetchData: () => {
+      dispatch(fetchCurrentProduct(Number(ownProps.match.params.productId)));
+      dispatch(fetchInitialOrder());
+    }
+  }
+}
 
 export default connect(mapState, mapDispatch)(SingleProduct)

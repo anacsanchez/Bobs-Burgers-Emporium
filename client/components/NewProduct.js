@@ -39,11 +39,6 @@ class NewProduct extends Component {
       this.setState({ categories: newSelectionArray });
   }
 
-    // this.setState({
-    //   categories: [...this.state.categories, event.target.id]
-    //   })
-  // }
-
   handleSubmit(event) {
     event.preventDefault();
 
