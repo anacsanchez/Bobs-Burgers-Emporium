@@ -18,7 +18,8 @@ class SingleProduct extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchData();
+    const productId = Number(this.props.match.params.productId)
+    this.props.fetchCurrentProduct(productId);
   }
 
   handleEdit() {
@@ -57,7 +58,7 @@ class SingleProduct extends Component {
 
     if (this.state.isEditing) {
       return (
-        <NewProduct product={currentProduct} handleEdit={this.handleEdit} />
+        <NewProduct product={this.state.currentProduct} handleEdit={this.handleEdit} />
       )
     }
      else {
@@ -108,15 +109,6 @@ class SingleProduct extends Component {
 
 const mapState = ({ currentProduct, currentUser, currentOrder }) => ({ currentProduct, currentUser, currentOrder })
 
-// const mapDispatch = { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart }
-
-const mapDispatch = (dispatch, ownProps) => {
-  return {
-    fetchData: () => {
-      dispatch(fetchCurrentProduct(Number(ownProps.match.params.productId)));
-      dispatch(fetchInitialOrder());
-    }
-  }
-}
+const mapDispatch = { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart }
 
 export default connect(mapState, mapDispatch)(SingleProduct)

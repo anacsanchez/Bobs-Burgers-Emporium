@@ -30,6 +30,7 @@ class SingleCategory extends Component {
 
   render() {
     const { currentCategory } = this.props;
+    console.log(currentCategory);
     const products = currentCategory.products || []
     if (!currentCategory || currentCategory.id !== Number(this.props.match.params.categoryId)) return <div />; // the product id is invalid or the data isnt loaded yet
 

@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:categoryId', (req, res, next) => {
-  Category.findById(req.params.categoryId, { include: [{ all: true }] })
+  Category.findById(req.params.categoryId, {include: [{ all: true, include: [{all: true}] }]})
     .then(category => res.json(category))
     .catch(next)
 })
