@@ -1,13 +1,13 @@
-# Bob's Burgers Emporium
+# The Burger Emporium
 
-Aimed at veg and non-veg burger lovers, Bob's Burgers Emporium is an e-commerce site that allows for the purchase of Bob's Burgers.
+Aimed at veg and non-veg burger lovers, The Burger Emporium is an e-commerce site that allows for the purchase of Bob's Burgers.
 
-[Bob's Burgers Emporium Beta Site](https://burger-emporium.herokuapp.com/)
-     This site was developed in 10 days as a final project for the Grace Hopper Program at Fullstack Academy. Because Bob's Burgers Emporium was built for educational rather than commerical use, the site does not actually allow users to purchase bugers.
+[The Burger Emporium Beta Site](https://burger-emporium.herokuapp.com/)
+     This site was developed in 10 days as a final project for the Grace Hopper Program at Fullstack Academy. Because The Burger Emporium was built for educational rather than commerical use, the site does not actually allow users to purchase bugers.
 
 ## App Functionality
 
-Bob's Burgers Emporium is an app that allows users to view and buy burgers from Bob's Burger Emporium.
+The Burger Emporium is an app that allows users to view and buy burgers from The Burger Emporium.
 
 Users can browse burgers, add and edit items in a virtual cart, and place an order. Users have the option of creating an account via local login or Google OAuth, allowing them to save and view their order history.
 
