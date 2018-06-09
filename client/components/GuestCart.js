@@ -10,7 +10,7 @@ class GuestCart extends Component {
   }
 
   handleClick = () => {
-    !this.state.visible ? this.setState({ visible: true }) : this.setState({ visible: false });
+    !this.state.visible ? this.setState({visible: true}) : this.setState({visible: false});
   }
 
   addCartItem = (lineItem) => {

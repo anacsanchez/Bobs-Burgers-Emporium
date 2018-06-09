@@ -1,9 +1,11 @@
 const db = require('../server/db')
 const { Product, Category, User, Order, Review, LineItem } = require('../server/db/models')
 const Chance = require('chance');
-const Promise = require('bluebird'); //Promise.map is not available in default promises
-const chanceObj = new Chance();
-const chanceObjReview = new Chance("Excellent!", "I\'ve had better", "Terrible", "No Thanks", "Pretty Good", "Alright", "Fantastic");
+const Promise = require('bluebird');
+const chance = new Chance();
+// const chanceReview = new Chance("Excellent!", "I\'ve had better", "Terrible", "No Thanks", "Pretty Good", "Alright", "Fantastic");
+// var chance1 = new Chance("hold", "me", "closer");
+
 
 //Set the amount of instances for each table
 const numUsers = 50;
@@ -11,7 +13,6 @@ const numOrders = 50;
 const numReviews = 100;
 const numLineItems = 200;
 
-//Helper function to generate an array of Create promises with random info
 function doTimes(num, fn) {
   const results = [];
   while (num--) {
@@ -20,39 +21,39 @@ function doTimes(num, fn) {
   return results;
 }
 
-//Random info for each table
-
 const randUser = () => {
   return User.create({
-    email: chanceObj.email(),
-    password: chanceObj.string({ length: 3 }),
-    admin: chanceObj.bool({ likelihood: 10 })
+    email: chance.email(),
+    password: chance.string({ length: 3 }),
+    admin: chance.bool({ likelihood: 10 })
   })
 }
 
 const randOrder = () => {
   return Order.create({
-    email: chanceObj.email(),
-    shippingAddress: chanceObj.address(),
-    userId: chanceObj.integer({ min: 1, max: 51 }),
-    productId: chanceObj.integer({ min: 1, max: 10 })
+    email: chance.email(),
+    shippingAddress: chance.address(),
+    userId: chance.integer({ min: 1, max: 51 }),
+    productId: chance.integer({ min: 1, max: 10 })
   })
 }
 
+const reviewPool = ["No Thanks.", "It's alright.", "Pretty Good.", "Excellent!", "Fantastic!"];
+
 const randReview = () => {
   return Review.create({
-    text: chanceObj.string({ length: 25 }),
-    rating: chanceObj.integer({ min: 1, max: 5 }),
-    productId: chanceObj.integer({ min: 1, max: 10 }),
-    userId: chanceObj.integer({ min: 1, max: 51 })
+    text: reviewPool[chance.integer({min: 0, max: reviewPool.length - 1})],
+    rating: chance.integer({ min: 1, max: 5 }),
+    productId: chance.integer({ min: 1, max: 10 }),
+    userId: chance.integer({ min: 1, max: 51 })
   })
 }
 
 const randLineItem = () => {
   return LineItem.create({
-    quantity: chanceObj.integer({ min: 1, max: 10 }),
-    productId: chanceObj.integer({ min: 1, max: 10 }),
-    orderId: chanceObj.integer({ min: 1, max: 50 })
+    quantity: chance.integer({ min: 1, max: 10 }),
+    productId: chance.integer({ min: 1, max: 10 }),
+    orderId: chance.integer({ min: 1, max: 50 })
   })
 }
 
@@ -73,6 +74,7 @@ const generateReviews = () => {
 const generateLineItems = () => {
   return doTimes(numLineItems, () => randLineItem());
 }
+
 
 async function seed() {
   await db.sync({ force: true })
@@ -180,16 +182,10 @@ async function seed() {
 
   const lineItems = await Promise.all(generateLineItems())
 
-
-  // Wowzers! We can even `await` on the right-hand side of the assignment operator
-  // and store the result that the promise resolves to in a variable! This is nice!
   console.log(`seeded ${products.length} users, ${categories.length} categories, ${users.length} users, ${orders.length} orders, ${reviews.length} reviews, and ${lineItems.length} line items`)
   console.log(`seeded successfully`)
 }
 
-// Execute the `seed` function
-// `Async` functions always return a promise, so we can use `catch` to handle any errors
-// that might occur inside of `seed`
 seed()
   .catch(err => {
     console.error(err.message)
@@ -202,9 +198,4 @@ seed()
     console.log('db connection closed')
   })
 
-/*
- * note: everything outside of the async function is totally synchronous
- * The console.log below will occur before any of the logs that occur inside
- * of the async function
- */
 console.log('seeding...')

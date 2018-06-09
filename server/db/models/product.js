@@ -12,7 +12,7 @@ const Product = db.define('product', {
   },
   imgUrl: {
     type: Sequelize.TEXT,
-    defaultValue: 'https://image.ibb.co/kodey8/burgerdefault.png',
+    defaultValue: 'https://image.ibb.co/bwWAxn/peas_and_thank_you.png',
     validate: {
       isUrl: true
     }
