@@ -24,7 +24,6 @@ class Reviews extends Component {
         { Object.keys(currentUser).length
           ? <NewReview submitReview={this.submitReview} product={currentProduct} user={currentUser} />
           : null}
-        {/* <h5>Average Rating</h5> */}
           {currentProduct.reviews && currentProduct.reviews.length
             ? <h4>Average Rating: {Math.round((currentProduct.reviews.reduce((acc, currVal) => acc + currVal.rating, 0) / currentProduct.reviews.length) * 10) / 10}</h4>
             : <h4> No ratings </h4>

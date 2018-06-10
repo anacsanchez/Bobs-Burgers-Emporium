@@ -54,7 +54,7 @@ class SingleProduct extends Component {
 
   render() {
     const { currentUser, currentProduct } = this.props;
-    if (!currentProduct || currentProduct.id !== Number(this.props.match.params.productId)) return <div className="height-100 bg-gray"></div>; // the product id is invalid or the data isnt loaded yet
+    if (!currentProduct || currentProduct.id !== Number(this.props.match.params.productId)) return <div className="height-100 bg-gray"></div>;
 
     if (this.state.isEditing) {
       return (

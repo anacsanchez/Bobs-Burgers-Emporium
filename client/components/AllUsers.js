@@ -15,7 +15,7 @@ class AllUsers extends Component {
     return (
       <div className="user-display">
         <div className="section-header">
-          <div className="title-box"><h2>Users</h2></div>
+          <div className="title-box color-darkred"><h2>Users</h2></div>
         </div>
         <div className="user-list-header">
           <div className="user-details col-xs-2"><h4>EMAIL</h4></div>

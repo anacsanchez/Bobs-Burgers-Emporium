@@ -32,16 +32,6 @@ const User = db.define('user', {
     defaultValue: false
   }
 }
-// ,
-// {
-//   scopes: {
-//     populated: () => {
-//       include: [{
-//         model: Order, Review
-//       }]
-//     }
-//   }
-// }
 )
 
 module.exports = User

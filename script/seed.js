@@ -3,9 +3,6 @@ const { Product, Category, User, Order, Review, LineItem } = require('../server/
 const Chance = require('chance');
 const Promise = require('bluebird');
 const chance = new Chance();
-// const chanceReview = new Chance("Excellent!", "I\'ve had better", "Terrible", "No Thanks", "Pretty Good", "Alright", "Fantastic");
-// var chance1 = new Chance("hold", "me", "closer");
-
 
 //Set the amount of instances for each table
 const numUsers = 50;
@@ -79,8 +76,6 @@ const generateLineItems = () => {
 async function seed() {
   await db.sync({ force: true })
   console.log('db synced!')
-  // Whoa! Because we `await` the promise that db.sync returns, the next line will not be
-  // executed until that promise resolves!
 
   const users = await Promise.all(generateUsers())
 

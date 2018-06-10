@@ -23,12 +23,12 @@ class AllProducts extends Component {
             ? (
               <div>
                 <h2 className="header">Burgers in this Category</h2>
-                <h4 className="sub-header">{displayProducts.length} products</h4>
+                <h4 className="sub-header color-darkred">{displayProducts.length} products</h4>
               </div>
               ) : (
-              <div className="title-box">
+              <div className="title-box color-darkred">
                 <h2> All Burgers</h2>
-                <h4 className="sub-header">{displayProducts.length} products</h4>
+                <h4 className="sub-header color-darkred">{displayProducts.length} products</h4>
               </div>
             )
           }
@@ -44,11 +44,11 @@ class AllProducts extends Component {
                 <Link to={`/products/${product.id}`}>
                   <img className="thumbnail" src={ product.imgUrl } />
                   <div>
-                    <div className="productName">{product.name}</div>
-                    {this.props.currentUser.isAdmin && <div className="productInfo">
+                    <div className="product-name">{product.name}</div>
+                    {this.props.currentUser.isAdmin && <div className="product-info">
                         <p> Current Inventory: {product.inventory} </p>
                     </div>}
-                    <div className="productInfo">
+                    <div className="product-info">
                       <p>Price: {product.price}</p>
                       {product.reviews && product.reviews.length
                       ? <p>Average Rating: {Math.round((product.reviews.reduce((acc, currVal) => acc + currVal.rating, 0) / product.reviews.length) * 10) / 10}</p>

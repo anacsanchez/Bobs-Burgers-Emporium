@@ -2,18 +2,10 @@ import axios from 'axios';
 
 // action types
 const GET_ALL_CART_ITEMS = 'GET_ALL_CART_ITEMS';
-// const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
-// const ADD_CART_ITEM = 'ADD_CART_ITEM';
-// const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
 const RESET_CART_ITEMS = 'RESET_CART_ITEMS';
-
-//commented out actions/reducers temporarily not in use - AS
 
 // action creators
 const getCurrentCartItems = cartItems => ({ type: GET_ALL_CART_ITEMS, cartItems });
-// const removeCartItem = cartItem => ({ type: REMOVE_CART_ITEM, cartItem });
-// const addCartItem = cartItem => ({ type: ADD_CART_ITEM, cartItem });
-// const updateCartItem = cartItem => ({ type: UPDATE_CART_ITEM, cartItem });
 const resetCartItems = () => ({type: RESET_CART_ITEMS})
 
 // reducer
@@ -21,14 +13,6 @@ export default (cartItems = [], action) => {
   switch (action.type) {
     case GET_ALL_CART_ITEMS:
       return action.cartItems;
-    // case REMOVE_CART_ITEM:
-    //   return cartItems.filter(cartItem => cartItem.id !== action.id);
-
-    // case ADD_CART_ITEM:
-    //   return [...cartItems, action.cartItem]
-
-    // case UPDATE_CART_ITEM:
-    //   return cartItems.map(cartItem => (cartItem.product.id === action.cartItem.product.id ? action.cartItem : cartItem))
     case RESET_CART_ITEMS:
       return [];
     default:

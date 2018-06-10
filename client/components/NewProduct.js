@@ -109,15 +109,15 @@ class NewProduct extends Component {
           </label>
           </div>
           <div className="input-field">
-          <label>Inventory:
-            <input
-              name="inventory"
-              onChange={this.handleChange}
-              type="number"
-              min="0"
-              value={this.state.inventory}
-            />
-          </label>
+            <label>Inventory:
+              <input
+                name="inventory"
+                onChange={this.handleChange}
+                type="number"
+                min="0"
+                value={this.state.inventory}
+              />
+            </label>
           </div>
           <fieldset>
           <legend>Categories:</legend>

@@ -13,9 +13,7 @@ html {
   height: 100%;
   width: 100%;
 }
-.title-box > .sub-header {
-  color: rgb(172, 0, 0);
-}
+
 body {
   min-height: 100%;
   min-width: 100%;
@@ -40,10 +38,6 @@ a:hover {
    text-decoration: none;
 }
 
-.product-inner a:hover {
-  color: rgb(255, 203, 203);
-}
-
 label {
   display: block;
 }
@@ -55,15 +49,6 @@ app {
   width: 100%;
 }
 
-.title-box {
-  color: rgb(172, 0, 0);
-}
-
-.title-box h2 {
-  font-family: "Claire Hand";
-  color: rgb(172, 0, 0);
-}
-
 .color-white {
   color: white;
 }
@@ -72,17 +57,40 @@ app {
   color: black;
 }
 
-.input-font {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+.color-red {
+  color: red;
 }
 
-img {
-  max-width: 300px;
-  max-height: 300px;
-  height: auto;
-  width:auto;
-  border:none;
-  margin: auto;
+.color-darkred {
+  color: rgb(172, 0, 0);
+}
+
+.center {
+  text-align: center;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.outer-border {
+  border: 3px solid black;
+}
+
+.red-border {
+  border: 12px solid rgb(199, 15, 15);
+}
+
+.inner-border {
+  border: 3px solid black;
 }
 
 .wide-list {
@@ -139,8 +147,12 @@ nav a {
   text-decoration: none;
   color:rgb(239, 0, 0);
   padding-left: .1em;
+  padding-right: .1em;
 }
 
+.banner {
+  max-width: 100%;
+}
 
 .nav-border {
   border: 3px solid black;
@@ -149,8 +161,9 @@ nav a {
 
 .nav-logo img {
   height: 100%;
-  max-width: none;
   margin: .2em;
+  width: 100%;
+  min-width: 20
 }
 
 .nav-items {
@@ -199,16 +212,8 @@ HEADERS
 .header {
   font-weight: 500 !important;
   font-family: "Claire Hand";
-  /* color: white; */
 }
-/*
-.sub-header {
-  color: white;
-  font-family: "Claire Hand";
-} */
-.titlebox > h4 .sub-header {
-  color: red;
-}
+
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -222,7 +227,6 @@ HEADERS
 }
 
 .title-box {
-  /* color: white; */
   width: 20%;
   text-align: center;
   margin-top: 3em;
@@ -252,35 +256,8 @@ form > div > div {
   font-size: .9em;
 }
 
-.padding-20 {
-  padding: 20px;
-}
-
-.white {
-  color: white;
-}
-
-/* .chalkboard-box-outer-border {
-  border: 1px solid black;
-
-} */
-
-.outer-border {
-  border: 3px solid black;
-}
-
-.red-border {
-  border: 12px solid rgb(199, 15, 15);
-}
-
-.inner-border {
-  border: 3px solid black;
-}
-
-.opacity {
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+.input-font {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .input-field {
@@ -431,13 +408,10 @@ SECTIONS & CONTAINERS
   margin-bottom: 0px;
   margin-left: 1em;
   padding-bottom: 0px;
-  /* padding: 0px 10px 0px 10px; */
   flex-direction: column;
   width: 14%;
   min-width: 14em;
-  /* background-color: rgba(255, 255, 255, 0.838); */
   background-color: gray;
-  /* border: 10px solid rgb(191, 32, 32); */
   border: 3px solid black;
   margin-top: 3em;
 }
@@ -490,7 +464,6 @@ LISTS
   justify-content: center;
   border: 2px solid black;
   text-decoration: none;
-  /* color: black; */
   background-color:gray;
   color: white;
 }
@@ -513,11 +486,6 @@ LISTS
   border: 1px solid black;
 }
 
-.note-item {
-  background-color: white;
-  padding: 10px;
-}
-
 .list-item a {
   text-decoration: none;
 }
@@ -532,6 +500,11 @@ LISTS
   margin: 5px 10px 5px 10px
 }
 
+.note-item {
+  background-color: white;
+  padding: 10px;
+}
+
 /*
 PRODUCTS
 */
@@ -540,25 +513,12 @@ PRODUCTS
   padding: 5px;
 }
 
-.center {
-  text-align: center;
-}
-
-.bg-gray {
-  background-color: gray;
-}
-
-.bg-white {
-  background-color: white;
-}
-
 .section-body {
   display: flex;
   flex-direction: column;
   width: 50vw;
   padding: 20px;
   font-size: 1.5em;
-  /* background-color: rgba(255, 255, 255, 0.797); */
 }
 
 .section-body button {
@@ -592,14 +552,16 @@ PRODUCTS
   margin: 0;
 }
 .product {
-  /* background-color: #fffdf4; */
-  /* padding: 10px; */
   height: 100%;
-  /* border: solid 1px #84848496; */
   border: 10px solid rgb(199, 15, 15);
   font-family: "Claire Hand";
   color: white;
 }
+
+.product-inner a:hover {
+  color: rgb(255, 203, 203);
+}
+
 
 .product-inner{
   padding: 10px;
@@ -608,17 +570,15 @@ PRODUCTS
 }
 
 .product a {
-  /* color: #ef7878; */
   margin-top: 1em;
 }
 
-.productName {
+.product-name {
   font-size: 22px;
   font-weight: 600;
-  /* color: #de6b23; */
 }
 
-.productInfo {
+.product-info {
   padding: 8px 5px 0px 5px;
   text-align: center;
 }
@@ -637,8 +597,6 @@ CATEGORIES & REVIEWS
 */
 #reviews-section {
   padding: 1.5em;
-  /* margin-top: 30px; */
-  /* background-color: rgba(255, 255, 255, 0.797); */
   font-size: 1.1em;
   width: 100%;
   text-align: center;
@@ -657,7 +615,6 @@ CATEGORIES & REVIEWS
 }
 .category {
   font-family: "Claire Hand";
-  /* color: white; */
   text-decoration: none;
 }
 
