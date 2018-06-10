@@ -2,7 +2,7 @@
 
 Aimed at veg and non-veg burger lovers, Bob's Burgers* Emporium is an e-commerce site that allows for the purchase of Bob's Burgers.
 
-[Bob's Burgers Emporium Beta Site](https://burger-emporium.herokuapp.com/)
+[Bob's Burgers Emporium Beta Site](https://burgers-emporium.herokuapp.com/)
      This site was developed in 10 days as a final project for the Grace Hopper Program at Fullstack Academy. Because Bob's Burgers Emporium was built for educational rather than commerical use, the site does not actually allow users to purchase bugers.
 
 ## App Functionality
