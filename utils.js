@@ -15,4 +15,4 @@ const isAdmin = (req, res, next) => {
   next()
 }
 
-module.exports = {isAdmin, isLoggedIn, makeError}
+module.exports = { isAdmin, isLoggedIn, makeError }
