@@ -36,6 +36,7 @@ LineItem.hook("afterCreate", (lineItem, options) => {
       product.decrement(lineItem.quantity)
     }
   })
+  .catch(err => console.log("err", err))
 })
 
 module.exports = LineItem

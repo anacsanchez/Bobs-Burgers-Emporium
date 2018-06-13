@@ -25,7 +25,6 @@ describe('Order model', () => {
           inventory: 5
         })
         .then(product => {
-          testProduct = product;
           return Order.create({
             status: 'Pending',
             email: 'ginny@hogwarts.edu',
@@ -33,25 +32,23 @@ describe('Order model', () => {
           })
           .then(order => {
             testOrder = order;
+            testOrder.update({status: 'Created'})
             return LineItem.create({
               quantity: 2, currentPrice: 3.00, totalPrice: 6.00, orderId: order.id, productId: 1
           })
-          .then(() => {
-            return testOrder.update({status: 'Created'})
+          .then(lineItem => {
+            return Product.findById(lineItem.productId)
+          })
+          .then(updatedProduct  => {
+            testProduct = updatedProduct
           })
         })
       })
     })
 
-      // describe('priceTotal', () => {
-      //   it('correctly sums the prices across child line items', () => {
-      //     expect(testOrder.priceTotal).to.equal(11.00)
-      //   })
-      // })
-
-      describe('the afterUpdate order hook', () => {
-        it('correctly updates product', () => {
-          expect(testProduct.inventory).to.equal(3)
+      describe('the beforeUpdate order hook works correctly', () => {
+        it('correctly decrements product inventory after order is created', () => {
+            expect(testProduct.inventory).to.equal(3)
         })
       })
     })
