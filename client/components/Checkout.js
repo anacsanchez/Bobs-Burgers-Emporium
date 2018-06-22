@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editOrder, postOrder, emptyCart, resetCurrentOrder } from '../store'
 import { CheckoutForm } from './index';
+import { Elements } from 'react-stripe-elements';
 
 class Checkout extends Component {
 
@@ -28,10 +29,10 @@ class Checkout extends Component {
       return <div className="form-login"><h1>Thank you for your order!</h1></div>
     }
     else if (Object.keys(currentUser).length) {
-      return <CheckoutForm placeOrder={this.placeOrder} order={currentOrder} email={currentUser.email} products={currentOrder.lineItems} />
+      return <Elements><CheckoutForm placeOrder={this.placeOrder} order={currentOrder} email={currentUser.email} products={currentOrder.lineItems} /></Elements>
     }
     else {
-      return <CheckoutForm placeOrder={this.placeOrder} products={allCartItems} />
+      return <Elements><CheckoutForm placeOrder={this.placeOrder} products={allCartItems} /></Elements>
     }
   }
 }

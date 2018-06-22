@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {injectStripe} from 'react-stripe-elements';
+import PaymentForm from './PaymentForm';
 
-export default class CheckoutForm extends Component {
+class CheckoutForm extends Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +17,16 @@ export default class CheckoutForm extends Component {
     this.props.email ? order.email = this.props.email : order.email = email.value;
     order.shippingAddress = `${address1.value}, ${address2.value}, ${city.value}, ${state.value} ${zip.value}`;
     order.status = 'Created';
-    this.props.placeOrder(order);
+    this.props.stripe.createToken({type: 'card'})
+    .then((result) => {
+      if (Object.keys(result.token).length) {
+        this.props.placeOrder(order)
+      }
+      else {
+        throw 'Invalid payment request!';
+      }
+    })
+    .catch(err => console.log('invalid payment request'))
   }
 
   render() {
@@ -23,14 +34,16 @@ export default class CheckoutForm extends Component {
     let total = 0;
     if (!products) { return <p>Cart is empty</p> }
     return (
+      <div>
+
       <div id="checkout-items">
         <form id="checkout-form" onSubmit={this.handleOrder}>
-        <p style={{fontWeight: 'bold', fontSize: '1.2em'}}>Shipping Address </p>
-          <label>Address 1:</label><input type="text" name="address1" />
+          <p style={{fontWeight: 'bold', fontSize: '1.2em'}}>Shipping Address </p>
+          <label>Address 1:</label><input required="true" type="text" name="address1" />
           <label>Address 2 (Optional):</label><input type="text" name="address2" />
-          <label>City</label><input type="text" name="city" />
+          <label>City</label><input type="text" name="city" required="true" />
           <label>State</label>
-          <select name="state">
+          <select name="state" required="true">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -83,12 +96,15 @@ export default class CheckoutForm extends Component {
             <option value="WY">Wyoming</option>
           </select>
           <br /><br />
-          <label>Zip Code</label><input type="text" name="zip" />
+          <label>Zip Code</label><input required="true" type="text" name="zip" />
           <br /><br />
           {
-            !this.props.email ? <div><label>Email Address: </label><input type="email" name="email" /></div> : null
+            !this.props.email ? <div><label>Email Address: </label><input type="email" name="email" required="true"/></div> : null
           }
           <br />
+          <div className="card-section">
+            <PaymentForm/>
+          </div>
           <input type="submit" className="btn btn-success" value="Place Order" />
         </form>
         <ul>
@@ -100,6 +116,7 @@ export default class CheckoutForm extends Component {
           <br />
           <li><h4>Your Total: {total}</h4></li>
         </ul>
+      </div>
       </div>
     )
   }
@@ -115,3 +132,5 @@ const SingleItem = (props) => {
      </div>
    )
  }
+
+ export default injectStripe(CheckoutForm);
