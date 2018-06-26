@@ -8,7 +8,7 @@ This site was developed in 10 days as a final project for the Grace Hopper Progr
 
 ## App Functionality
 
-Guests and registered users can browse burgers, add items to a cart, and place orders. Visitors have the option of creating an account via local login or Google, allowing them to save their shopping cart and view their order history.
+Guests and registered users can browse burgers, add items to a cart, and place orders via Stripe. Visitors have the option of creating an account via local login or Google, allowing them to save their shopping cart and view their order history.
 
 Administrative users can add, edit, and delete users, orders, burgers, and categories.
 
