@@ -19,7 +19,7 @@ Administrative users can add, edit, and delete users, orders, burgers, and categ
 * [PostgreSQL](https://www.postgresql.org/) and [Sequelize](http://docs.sequelizejs.com/)
 * [Passport.js](http://www.passportjs.org/)
 * [React](https://reactjs.org/) and [Redux](https://redux.js.org/)
-* [Stripe React Elements](https://github.com/stripe/react-stripe-elements)
+* [Stripe](https://github.com/stripe/react-stripe-elements)
 
 ## Contributors
 
