@@ -27,6 +27,7 @@ class NewProduct extends Component {
   }
 
   handleCheckboxChange(event) {
+    console.dir(event.target)
     let newSelection = event.target.id;
     let newSelectionArray;
 
