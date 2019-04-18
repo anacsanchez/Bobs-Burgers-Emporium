@@ -14,6 +14,8 @@ import currentReview from './currentReview';
 import currentUser from './currentUser';
 import userToEdit from './editUser';
 import allCartItems from './allCartItems';
+import axios from 'axios';
+axios.defaults.baseURL = '/burgers-emporium'
 
 const reducer = combineReducers({
   allCategories,

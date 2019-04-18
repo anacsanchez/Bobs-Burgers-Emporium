@@ -9,12 +9,12 @@ import {StripeProvider} from 'react-stripe-elements';
 
 
 ReactDOM.render(
+  <Router history={history}>
   <Provider store={store}>
     <StripeProvider apiKey="pk_test_lFHpwlDBijuzRHQyOsR2eh8r">
-      <Router history={history}>
         <App />
-      </Router>
     </StripeProvider>
-  </Provider>,
+  </Provider>
+  </Router>,
   document.getElementById('app')
 )
