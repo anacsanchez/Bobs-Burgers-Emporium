@@ -8,3 +8,6 @@ yarn-error.log
 norms.md
 app.log
 pid.log
+stop_server.sh
+run_server.sh
+run_server_restart.sh

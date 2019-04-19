@@ -49485,3 +49485,173 @@ Unhandled rejection SequelizeConnectionError: password authentication failed for
     at readableAddChunk (_stream_readable.js:261:11)
     at Socket.Readable.push (_stream_readable.js:218:10)
     at TCP.onread (net.js:581:20)
+Unhandled rejection SequelizeConnectionError: password authentication failed for user "ana"
+    at connection.connect.err (/home/ana/Bobs-Burgers-Emporium/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:128:24)
+    at Client.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/client.js:203:5)
+    at Connection.emit (events.js:180:13)
+    at Socket.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/connection.js:133:12)
+    at Socket.emit (events.js:180:13)
+    at addChunk (_stream_readable.js:274:12)
+    at readableAddChunk (_stream_readable.js:261:11)
+    at Socket.Readable.push (_stream_readable.js:218:10)
+    at TCP.onread (net.js:581:20)
+[0mGET / [36m304 [0m7.885 ms - -[0m
+[0mGET /style.css [36m304 [0m3.396 ms - -[0m
+[0mGET /bundle.js [36m304 [0m5.623 ms - -[0m
+[0mGET /clairehandbold-webfont.ttf [32m200 [0m4.389 ms - 99460[0m
+[0mGET /auth/me [32m200 [0m9.990 ms - -[0m
+[0mGET /api/products [36m304 [0m175.207 ms - -[0m
+[0mGET /api/categories [36m304 [0m17.485 ms - -[0m
+[0mGET /api/categories [32m200 [0m17.830 ms - -[0m
+[0mGET /api/products/2 [32m200 [0m38.169 ms - -[0m
+[0mGET /api/products/2 [36m304 [0m30.981 ms - -[0m
+[0mGET /api/products [36m304 [0m177.150 ms - -[0m
+[0mGET /api/categories [36m304 [0m176.164 ms - -[0m
+[0mGET /api/categories [32m200 [0m9.348 ms - -[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+Unhandled rejection SequelizeConnectionError: password authentication failed for user "ana"
+    at connection.connect.err (/home/ana/Bobs-Burgers-Emporium/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:128:24)
+    at Client.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/client.js:203:5)
+    at Connection.emit (events.js:180:13)
+    at Socket.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/connection.js:133:12)
+    at Socket.emit (events.js:180:13)
+    at addChunk (_stream_readable.js:274:12)
+    at readableAddChunk (_stream_readable.js:261:11)
+    at Socket.Readable.push (_stream_readable.js:218:10)
+    at TCP.onread (net.js:581:20)
+[0mGET /bundle.js.map [36m304 [0m9.374 ms - -[0m
+[0mGET /home [32m200 [0m10.045 ms - 752[0m
+[0mGET /style.css [36m304 [0m3.578 ms - -[0m
+[0mGET /bundle.js [36m304 [0m3.681 ms - -[0m
+[0mGET /auth/me [32m200 [0m3.579 ms - -[0m
+[0mGET /api/products/2 [36m304 [0m45.680 ms - -[0m
+{ Error: Not Found
+    at router.use (/home/ana/Bobs-Burgers-Emporium/server/api/index.js:11:17)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at SessionStrategy.strategy.pass (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:325:9)
+    at SessionStrategy.authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/strategies/session.js:71:10)
+    at attempt (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:348:16)
+    at authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:349:7)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10) status: 404 }
+Error: Not Found
+    at router.use (/home/ana/Bobs-Burgers-Emporium/server/api/index.js:11:17)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at SessionStrategy.strategy.pass (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:325:9)
+    at SessionStrategy.authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/strategies/session.js:71:10)
+    at attempt (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:348:16)
+    at authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:349:7)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+[0mGET /api [33m404 [0m1.545 ms - 9[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+[0mGET / [36m304 [0m9.809 ms - -[0m
+[0mGET /style.css [36m304 [0m3.503 ms - -[0m
+[0mGET /bundle.js [36m304 [0m3.308 ms - -[0m
+[0mGET /auth/me [32m200 [0m2.853 ms - -[0m
+[0mGET /home [36m304 [0m4.058 ms - -[0m
+[0mGET /bundle.js [36m304 [0m3.298 ms - -[0m
+[0mGET /style.css [36m304 [0m2.474 ms - -[0m
+[0mGET /auth/me [32m200 [0m2.121 ms - -[0m
+[0mGET /api/products/2 [36m304 [0m56.803 ms - -[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+{ Error: Not Found
+    at router.use (/home/ana/Bobs-Burgers-Emporium/server/api/index.js:11:17)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at SessionStrategy.strategy.pass (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:325:9)
+    at SessionStrategy.authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/strategies/session.js:71:10)
+    at attempt (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:348:16)
+    at authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:349:7)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10) status: 404 }
+Error: Not Found
+    at router.use (/home/ana/Bobs-Burgers-Emporium/server/api/index.js:11:17)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+    at SessionStrategy.strategy.pass (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:325:9)
+    at SessionStrategy.authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/strategies/session.js:71:10)
+    at attempt (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:348:16)
+    at authenticate (/home/ana/Bobs-Burgers-Emporium/node_modules/passport/lib/middleware/authenticate.js:349:7)
+    at Layer.handle [as handle_request] (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:317:13)
+    at /home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ana/Bobs-Burgers-Emporium/node_modules/express/lib/router/index.js:275:10)
+[0mGET /api/ [33m404 [0m1.010 ms - 9[0m
+[0mGET / [36m304 [0m10.017 ms - -[0m
+[0mGET /style.css [36m304 [0m10.021 ms - -[0m
+[0mGET /bundle.js [36m304 [0m8.987 ms - -[0m
+[0mGET /auth/me [32m200 [0m4.427 ms - -[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+[0mGET /auth/me [32m200 [0m13.192 ms - -[0m
+[0mGET /style.css [0m- [0m- ms - -[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
+[0mGET / [36m304 [0m9.223 ms - -[0m
+[0mGET /style.css [36m304 [0m3.221 ms - -[0m
+[0mGET /bundle.js [36m304 [0m2.658 ms - -[0m
+[0mGET /auth/me [32m200 [0m3.077 ms - -[0m
+Unhandled rejection SequelizeConnectionError: password authentication failed for user "ana"
+    at connection.connect.err (/home/ana/Bobs-Burgers-Emporium/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:128:24)
+    at Client.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/client.js:203:5)
+    at Connection.emit (events.js:180:13)
+    at Socket.<anonymous> (/home/ana/Bobs-Burgers-Emporium/node_modules/pg/lib/connection.js:133:12)
+    at Socket.emit (events.js:180:13)
+    at addChunk (_stream_readable.js:274:12)
+    at readableAddChunk (_stream_readable.js:261:11)
+    at Socket.Readable.push (_stream_readable.js:218:10)
+    at TCP.onread (net.js:581:20)
+[0mGET /products [32m200 [0m0.915 ms - 752[0m
+[0mGET /api/orders [0m- [0m- ms - -[0m
