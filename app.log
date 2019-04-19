@@ -49655,3 +49655,6 @@ Unhandled rejection SequelizeConnectionError: password authentication failed for
     at TCP.onread (net.js:581:20)
 [0mGET /products [32m200 [0m0.915 ms - 752[0m
 [0mGET /api/orders [0m- [0m- ms - -[0m
+[0mGET /products/1 [32m200 [0m1.030 ms - 752[0m
+[0mGET /products/6 [32m200 [0m1.116 ms - 752[0m
+[0mGET /categories [32m200 [0m0.987 ms - 752[0m
