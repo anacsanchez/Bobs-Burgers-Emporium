@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const session = require('express-session')
+const apiRouter = require('./api');
+const authRouter = require('./auth');
 // require('../secrets')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
@@ -42,8 +44,15 @@ const createApp = () => {
   app.use(passport.session())
 
   // auth and api routes
-  app.use('/auth', require('./auth'))
-  app.use('/api', require('./api'))
+  if (process.env.NODE_ENV == 'development') {
+    app.use(`/${process.env.URL}/auth`, authRouter)
+    app.use(`/${process.env.URL}/api`, apiRouter)
+  }
+  else {
+    app.use('/auth', authRouter)
+    app.use('/api', apiRouter);
+  }
+
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
