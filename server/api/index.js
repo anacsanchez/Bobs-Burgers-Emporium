@@ -7,6 +7,10 @@ router.use('/reviews', require('./reviews'))
 router.use('/products', require('./products'))
 router.use('/categories', require('./categories'))
 
+router.get('/', (req,res,next) => {
+  res.send('Youve reached the api!')
+})
+
 router.use((req, res, next) => {
   const error = new Error('Not Found')
   error.status = 404
