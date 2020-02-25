@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const db = require('../server/db')
 const { Product, Category, User, Order, Review, LineItem } = require('../server/db/models')
 const Chance = require('chance');

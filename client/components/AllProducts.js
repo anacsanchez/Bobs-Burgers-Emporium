@@ -11,15 +11,13 @@ class AllProducts extends Component {
   }
 
   render() {
-    const displayProducts = this.props.categoryProducts
-    ? this.props.categoryProducts
-    : this.props.allProducts
+    const displayProducts = this.props.categoryProducts ? this.props.categoryProducts : this.props.allProducts
 
     return (
       <div id="products-list">
         <div className="section-header">
           {
-            this.props.categoryProducts
+            this.props.categoryProducts && this.props.categoryProducts.length
             ? (
               <div>
                 <h2 className="header">Burgers in this Category</h2>

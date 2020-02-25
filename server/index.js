@@ -1,10 +1,11 @@
+require('dotenv').config();
+
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const session = require('express-session')
-// require('../secrets')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')

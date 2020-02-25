@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  burgers-emporium:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ['./entrypoint.sh']
+    ports:
+      - "5050:5050"
+    env_file:
+      - .env
+    depends_on:
+      - db
+  db:
+    build:
+      context: server/db
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
