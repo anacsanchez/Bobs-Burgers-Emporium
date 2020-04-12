@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editOrder, fetchOrders } from '../store'
+import { formatPrice } from '../utils';
 
 class SingleOrder extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class SingleOrder extends Component {
                   {/* <div>order status: {currentOrder.status}</div> */}
                   <div><b>Order Date: </b>{userOrder.orderDate && userOrder.orderDate.slice(0, 10)}</div>
                   <div>
-                    <div><b>Order Total: </b>{ lineItems.reduce((orderTotal, lineItem) => orderTotal + lineItem.totalPrice, 0) }</div>
+                    <div><b>Order Total: </b>{ formatPrice(lineItems.reduce((orderTotal, lineItem) => orderTotal + lineItem.totalPrice, 0)) }</div>
                     <form className="section-body" onSubmit={this.handleSubmit}>
                     <div>
                       <b>Status: </b>
@@ -90,8 +91,8 @@ class SingleOrder extends Component {
                         { console.log(lineItem) }
                           <div><b>Name: </b> {lineItem.product.name}</div>
                           <div><b>Quantity: </b> {lineItem.quantity}</div>
-                          <div><b>Price: </b>{lineItem.currentPrice}</div>
-                          <div><b>Item Total: </b>{lineItem.totalPrice}</div>
+                          <div><b>Price: </b>{ formatPrice(lineItem.currentPrice) }</div>
+                          <div><b>Item Total: </b>{ formatPrice(lineItem.totalPrice) }</div>
                         </div>
                       )
                     })

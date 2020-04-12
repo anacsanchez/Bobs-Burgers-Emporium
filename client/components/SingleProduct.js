@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems } from '../store';
+import { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postOrder, postLineItem, addItemToCart, fetchCartItems, editLineItem } from '../store';
 import { NewProduct, Reviews } from './index';
+import { formatPrice } from '../utils';
 
 class SingleProduct extends Component {
   constructor(props) {
@@ -47,8 +48,18 @@ class SingleProduct extends Component {
     }
 
     else {
-      newLineItem.orderId = currentOrder.id;
-      this.props.postLineItem(currentOrder.id, [newLineItem]);
+      const lineItemProductInOrder = currentOrder.lineItems.find(lineItem => lineItem.productId == currentProduct.id);
+      if(lineItemProductInOrder) {
+        const updatedLineItem = {
+          quantity: lineItemProductInOrder.quantity + 1,
+          id: lineItemProductInOrder.id
+        }
+        this.props.editLineItem(currentOrder.id, updatedLineItem);
+      }
+      else {
+        newLineItem.orderId = currentOrder.id;
+        this.props.postLineItem(currentOrder.id, [newLineItem]);
+      }
     }
   }
 
@@ -74,7 +85,7 @@ class SingleProduct extends Component {
           <div className="single-page-content product-page">
             <img src={ currentProduct.imgUrl } />
               <div><b>Description:</b> {currentProduct.description}</div>
-              <div><b>Price:</b> {currentProduct.price}</div>
+              <div><b>Price:</b> { formatPrice(currentProduct.price) }</div>
               { currentProduct.inventory > 0
                 ? <button className="btn btn-success button-margin" onClick={this.handleAdd}>Add To Cart</button>
                 : <div> No burgers at the moment. Check back soon!</div>
@@ -109,6 +120,6 @@ class SingleProduct extends Component {
 
 const mapState = ({ currentProduct, currentUser, currentOrder }) => ({ currentProduct, currentUser, currentOrder })
 
-const mapDispatch = { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart }
+const mapDispatch = { fetchInitialOrder, fetchCurrentProduct, deleteProduct, postLineItem, postOrder, fetchCartItems, addItemToCart, editLineItem }
 
 export default connect(mapState, mapDispatch)(SingleProduct)

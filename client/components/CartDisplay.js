@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../utils'
 
 const CartDisplay = ({products, handleAdd, handleReduce, hideCart}) => {
   if (!products || !products.length) { return <div id="cart-display"><p>Cart is empty</p></div> }
@@ -14,7 +15,7 @@ const CartDisplay = ({products, handleAdd, handleReduce, hideCart}) => {
                   <p>{product.product.name}</p>
                   <img src={product.product.imgUrl} />
                   <p>Quantity: {product.quantity}</p>
-                  <p>Price: {product.quantity * product.product.price}</p>
+                  <p>Price: { formatPrice(product.quantity * product.product.price) }</p>
                   <button onClick= {() => handleAdd(product)}>+</button>
                   <button onClick={() => handleReduce(product)}>-</button>
                 </div>

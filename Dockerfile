@@ -4,5 +4,5 @@ RUN apt-get install netcat -y
 WORKDIR /app
 COPY . /app
 RUN npm install
-RUN npm run build-client
+RUN npm run build-production
 RUN chmod +x entrypoint.sh

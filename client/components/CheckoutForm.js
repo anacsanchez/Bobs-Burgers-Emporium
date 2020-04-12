@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {injectStripe} from 'react-stripe-elements';
 import PaymentForm from './PaymentForm';
+import { formatPrice } from '../utils';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -39,11 +40,11 @@ class CheckoutForm extends Component {
       <div id="checkout-items">
         <form id="checkout-form" onSubmit={this.handleOrder}>
           <p style={{fontWeight: 'bold', fontSize: '1.2em'}}>Shipping Address </p>
-          <label>Address 1:</label><input required="true" type="text" name="address1" />
+          <label>Address 1:</label><input type="text" name="address1" required />
           <label>Address 2 (Optional):</label><input type="text" name="address2" />
-          <label>City</label><input type="text" name="city" required="true" />
+          <label>City</label><input type="text" name="city" required />
           <label>State</label>
-          <select name="state" required="true">
+          <select name="state" required>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -96,10 +97,10 @@ class CheckoutForm extends Component {
             <option value="WY">Wyoming</option>
           </select>
           <br /><br />
-          <label>Zip Code</label><input required="true" type="text" name="zip" />
+          <label>Zip Code</label><input required type="text" name="zip" />
           <br /><br />
           {
-            !this.props.email ? <div><label>Email Address: </label><input type="email" name="email" required="true"/></div> : null
+            !this.props.email ? <div><label>Email Address: </label><input type="email" name="email" required/></div> : null
           }
           <br />
           <div className="card-section">
@@ -110,11 +111,11 @@ class CheckoutForm extends Component {
         <ul>
           { products.map((product, i) => {
               total += (product.quantity * product.product.price);
-              return <li key={i}><SingleItem lineItem={product} /></li>
+              return <li key={ i }><SingleItem lineItem={ product } /></li>
             })
           }
           <br />
-          <li><h4>Your Total: {total}</h4></li>
+          <li><h4>Your Total: { formatPrice(total) }</h4></li>
         </ul>
       </div>
       </div>
@@ -125,10 +126,10 @@ class CheckoutForm extends Component {
 const SingleItem = (props) => {
   return  (
      <div className="cart-item">
-       <p>{props.lineItem.product.name}</p>
-       <img src={props.lineItem.product.imgUrl} />
-       <p>Quantity: {props.lineItem.quantity}</p>
-       <p>Price: {props.lineItem.quantity * props.lineItem.product.price}</p>
+       <p>{ props.lineItem.product.name }</p>
+       <img src={ props.lineItem.product.imgUrl } />
+       <p>Quantity: { props.lineItem.quantity }</p>
+       <p>Price: { formatPrice(props.lineItem.quantity * props.lineItem.product.price) }</p>
      </div>
    )
  }

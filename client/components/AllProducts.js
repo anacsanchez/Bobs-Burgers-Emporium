@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts, fetchCategories, fetchCurrentCategory } from '../store';
+import { formatPrice } from '../utils';
 
 // Component
 class AllProducts extends Component {
@@ -11,7 +12,7 @@ class AllProducts extends Component {
   }
 
   render() {
-    const displayProducts = this.props.categoryProducts ? this.props.categoryProducts : this.props.allProducts
+    const displayProducts = this.props.categoryProducts ? this.props.categoryProducts : this.props.allProducts;
 
     return (
       <div id="products-list">
@@ -47,7 +48,7 @@ class AllProducts extends Component {
                         <p> Current Inventory: {product.inventory} </p>
                     </div>}
                     <div className="product-info">
-                      <p>Price: {product.price}</p>
+                      <p>Price: { formatPrice(product.price) }</p>
                       {product.reviews && product.reviews.length
                       ? <p>Average Rating: {Math.round((product.reviews.reduce((acc, currVal) => acc + currVal.rating, 0) / product.reviews.length) * 10) / 10}</p>
                       : <p> No ratings </p>
